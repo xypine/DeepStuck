@@ -1,0 +1,137 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://ARM/ARM.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Scenemanager.gd" type="Script" id=3]
+[ext_resource path="res://ARM_V2/Piston/ARMV2P.tscn" type="PackedScene" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 541.794, 81.3334 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 58.661, 606.481 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Ground" type="StaticBody2D" parent="."]
+
+[node name="GroundShape" type="Polygon2D" parent="Ground"]
+position = Vector2( 0, 520 )
+scale = Vector2( 1.0236, 1 )
+color = Color( 0, 0, 0, 1 )
+polygon = PoolVector2Array( 0, 0, 1000, 0, 1000, 100, 0, 100 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2( 484.726, 607.8 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Ground"]
+position = Vector2( 1788.73, 607.8 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Ground"]
+position = Vector2( 3087.07, 617.8 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Ground"]
+visible = false
+position = Vector2( 487.506, -69.6659 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Ground"]
+position = Vector2( -59.2742, 303.8 )
+shape = SubResource( 2 )
+disabled = true
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Ground"]
+visible = false
+position = Vector2( 1084.73, 258.182 )
+shape = SubResource( 2 )
+disabled = true
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 427.871, 268.182 )
+
+[node name="Arms" type="Node2D" parent="."]
+
+[node name="Ground" type="Node2D" parent="Arms"]
+position = Vector2( 0, 30 )
+
+[node name="ARM_Root" parent="Arms/Ground" instance=ExtResource( 1 )]
+position = Vector2( 1211.97, 1180.46 )
+target_ext = NodePath("../../../Player")
+
+[node name="ARM_Root5" parent="Arms/Ground" instance=ExtResource( 1 )]
+position = Vector2( 1459.26, 1180.46 )
+target_ext = NodePath("../../../Player")
+
+[node name="ARM_Root6" parent="Arms/Ground" instance=ExtResource( 1 )]
+position = Vector2( 1714.11, 1180.46 )
+target_ext = NodePath("../../../Player")
+
+[node name="ARM_Root7" parent="Arms/Ground" instance=ExtResource( 1 )]
+position = Vector2( 1970.84, 1180.46 )
+target_ext = NodePath("../../../Player")
+
+[node name="ARM_Root2" parent="Arms/Ground" instance=ExtResource( 1 )]
+position = Vector2( 2173.96, 1407.4 )
+target_ext = NodePath("../../../Player")
+
+[node name="ARM_Root8" parent="Arms/Ground" instance=ExtResource( 1 )]
+position = Vector2( 2421.25, 1407.4 )
+target_ext = NodePath("../../../Player")
+
+[node name="ARM_Root9" parent="Arms/Ground" instance=ExtResource( 1 )]
+position = Vector2( 2676.1, 1407.4 )
+target_ext = NodePath("../../../Player")
+
+[node name="ARM_Root10" parent="Arms/Ground" instance=ExtResource( 1 )]
+position = Vector2( 2932.83, 1407.4 )
+target_ext = NodePath("../../../Player")
+
+[node name="ARM_Root11" parent="Arms/Ground" instance=ExtResource( 1 )]
+position = Vector2( 3214.21, 872.862 )
+target_ext = NodePath("../../../Player")
+
+[node name="ARM_Root12" parent="Arms/Ground" instance=ExtResource( 1 )]
+position = Vector2( 3470.94, 872.862 )
+target_ext = NodePath("../../../Player")
+
+[node name="Box" type="RigidBody2D" parent="."]
+mass = 100.0
+
+[node name="Polygon2D" type="Polygon2D" parent="Box"]
+polygon = PoolVector2Array( 0, 0, 100, 0, 100, 100, 0, 100 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Box"]
+polygon = PoolVector2Array( 0, 0, 100, 0, 100, 100, 0, 100 )
+
+[node name="ARMV2P" parent="." instance=ExtResource( 4 )]
+position = Vector2( -455.26, 631.183 )
+rotation = -1.57079
+joints = 15
+target_ext = NodePath("../Player")
+length = 13.0
+thickness = 40.0
+thicknessChange = 1.05
+
+[node name="ARMV2P2" parent="." instance=ExtResource( 4 )]
+position = Vector2( -59.2742, 692.862 )
+rotation = -4.71238
+joints = 15
+target_ext = NodePath("../Player")
+length = 13.0
+thickness = 40.0
+thicknessChange = 1.05
+
+[node name="ARMV2P3" parent="." instance=ExtResource( 4 )]
+position = Vector2( -659.401, 1297.4 )
+rotation = -3.14159
+target_ext = NodePath("../Player")
+length = 120.0
+thickness = 80.0
+thicknessChange = 1.2
