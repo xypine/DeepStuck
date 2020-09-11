@@ -8,12 +8,17 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if str(Global.autosave) != "a" and Global.loadRequested:
+		Global.loadRequested = false
+		doLoad()
 	pass # Replace with function body.
 
+var save1
 var flag = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
+		save()
 		Global.changeLevel("res://Scenes/Menu/Menu.tscn")
 	if is_instance_valid(Global.player):
 		if Global.player.global_position.y > 2000:
@@ -21,3 +26,8 @@ func _process(delta):
 			if not flag:
 				flag = true
 				Global.changeLevel("", true)
+func save():
+	Global.autosave = Global.player.toDict()
+	print("Autosave: " + str(Global.autosave))
+func doLoad():
+	Global.player.fromDict(Global.autosave)

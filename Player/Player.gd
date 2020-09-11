@@ -15,6 +15,28 @@ var walljumps = 0
 var resetJumps = false
 var doublejumps = 0
 
+func toDict():
+	var save_dict = {
+		"UP" : UP,
+		"motion" : motion,
+		"walljumps" : walljumps,
+		"resetJumps" : resetJumps,
+		"doublejumps" : doublejumps
+		,
+		"transform" : transform
+		,
+		"freeze" : Global.freeze
+	}
+	return save_dict
+func fromDict(dict):
+	var s = $Camera2D.smoothing_enabled
+	$Camera2D.smoothing_enabled = false
+	for i in dict:
+		if i == "freeze":
+			Global.freeze = dict[i]
+		else:
+			set(i, dict[i])
+	$Camera2D.smoothing_enabled = s
 func _process(_delta):
 	if Global.loading:
 		$Camera2D.smoothing_speed += 1

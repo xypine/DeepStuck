@@ -5,6 +5,9 @@ extends Node2D
 # var a = 2
 # var b = "text"
 
+var autosave = "a"
+var loadRequested = false
+
 var nature = []
 var freeze = false
 

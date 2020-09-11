@@ -10,6 +10,8 @@ extends Control
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	Global.currentLevel = "res://Scenes/Menu/Menu.tscn"
+	if str(Global.autosave) != "a":
+		$Button.text = "Continue"
 	pass # Replace with function body.
 
 
@@ -27,4 +29,6 @@ func start(world):
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	Global.changeLevel(world)
 func _on_Button_pressed():
+	if str(Global.autosave) != "a":
+		Global.loadRequested = true
 	start("res://Scenes/Main.tscn")
