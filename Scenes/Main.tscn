@@ -134,4 +134,9 @@ rotation = -3.14159
 target_ext = NodePath("../Player")
 length = 120.0
 thickness = 80.0
-thicknessChange = 1.2
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
+position = Vector2( 0, 2000 )
+color = Color( 0, 0, 0, 1 )
+polygon = PoolVector2Array( -10000, 0, 10000, 0, 10000, 1000, -10000, 1000 )

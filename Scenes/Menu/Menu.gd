@@ -18,6 +18,8 @@ func _process(delta):
 		Global.changeLevel("", false, true)
 		yield(Global, "loadFinished")
 		get_tree().quit()
+	if Input.is_action_just_pressed("ui_accept"):
+		_on_Button_pressed()
 
 func start(world):
 	#$Polygon2D/AnimationPlayer.play_backwards("Enter")

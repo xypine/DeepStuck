@@ -40,6 +40,8 @@ func _physics_process(delta):
 	elif Input.is_action_pressed("ui_left"):
 		motion.x -= ACCELERATION
 		xinput -= 1
+	if Input.is_action_just_pressed("ui_down"):
+		motion.y -= JUMP_HEIGHT * 1.5
 	
 	if is_on_floor():
 		resetJumps = true
@@ -62,6 +64,7 @@ func _physics_process(delta):
 	motion = move_and_slide(motion, UP)
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Global.player = self
 	$Camera2D.zoom = Vector2(0.4,0.4)
 	pass # Replace with function body.
 

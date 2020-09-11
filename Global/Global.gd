@@ -54,5 +54,5 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_fullscreen"):
 		OS.window_fullscreen = not OS.window_fullscreen
 	if is_instance_valid(player):
-		$Sprite.global_position = player.get_child(player.get_children().find("Camera2D"))
+		pass
 		
