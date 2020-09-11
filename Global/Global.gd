@@ -13,6 +13,8 @@ var currentLevel
 
 var loading = false
 
+signal loadFinished
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	currentLevel = "res://Scenes/Main.tscn"
@@ -30,19 +32,21 @@ func rmArm(arm):
 		print("Arm " + str(arm) + " unregistered")
 func setPlayer(playe):
 	player = playe
-func changeLevel(level, restart=false):
+func changeLevel(level, restart=false, fake=false):
 	loading = true
 	print("Load Started")
 	$LoadPlayer.play("LoadStart")
 	yield($LoadPlayer, "animation_finished")
-	zero()
-	if restart:
-		get_tree().reload_current_scene()
-	else:
-		get_tree().change_scene(level)
+	if not fake:
+		zero()
+		if restart:
+			get_tree().reload_current_scene()
+		else:
+			get_tree().change_scene(level)
 	$LoadPlayer.play("LoadEnd")
 	print("Load Finished.")
 	loading = false
+	emit_signal("loadFinished")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_just_pressed("ui_retry"):

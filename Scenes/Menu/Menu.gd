@@ -13,8 +13,11 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	if Input.is_action_just_pressed("ui_cancel"):
+		Global.changeLevel("", false, true)
+		yield(Global, "loadFinished")
+		get_tree().quit()
 
 func start(world):
 	#$Polygon2D/AnimationPlayer.play_backwards("Enter")
