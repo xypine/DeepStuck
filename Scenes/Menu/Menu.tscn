@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/Menu/Menu.gd" type="Script" id=1]
+[ext_resource path="res://Assets_External/Fonts/FontSquirrel/Caviar-Dreams/Caviar_Dreams_Bold.ttf" type="DynamicFontData" id=2]
 
-[sub_resource type="Animation" id=1]
-resource_name = "Enter"
+[sub_resource type="NoiseTexture" id=1]
+
+[sub_resource type="Animation" id=2]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:polygon")
@@ -90,6 +92,10 @@ tracks/6/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.647059 ) ]
 }
 
+[sub_resource type="DynamicFont" id=3]
+size = 64
+font_data = ExtResource( 2 )
+
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -98,8 +104,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="BG" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="BG"]
+position = Vector2( 519.874, 310.337 )
+scale = Vector2( 2.08204, 1.25733 )
+texture = SubResource( 1 )
+
+[node name="Polygon2D" type="Polygon2D" parent="BG"]
+color = Color( 0, 0.0588235, 0.0117647, 1 )
+polygon = PoolVector2Array( -0.359024, 252.703, 46.0201, 224.163, 135.211, 233.676, 168.508, 263.406, 161.373, 293.137, 141.157, 328.813, 168.508, 316.921, 239.861, 318.11, 262.456, 337.137, 282.672, 372.813, 280.294, 407.3, 302.889, 432.274, 325.484, 476.274, 350.457, 506.005, 370.674, 529.789, 368.295, 551.194, 336.187, 566.654, 336.187, 578.546, 805.923, 576.168, 778.572, 546.438, 773.815, 521.464, 786.896, 482.22, 830.897, 471.518, 876.086, 472.707, 868.951, 451.301, 870.14, 410.868, 911.763, 389.462, 929.601, 363.3, 965.277, 357.354, 1004.52, 313.353, 1040.2, 305.029, 1043.76, 638.007, -56.2518, 621.358, -56.2518, 252.703 )
+
 [node name="Button" type="Button" parent="."]
-self_modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -109,23 +130,22 @@ margin_top = -16.5
 margin_right = 45.0
 margin_bottom = 16.5
 text = "Start"
+flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-self_modulate = Color( 1, 1, 1, 0.819608 )
-position = Vector2( 320, 0 )
-scale = Vector2( 0.380952, 1 )
+self_modulate = Color( 0.721569, 0.721569, 0.721569, 0 )
 polygon = PoolVector2Array( 467.941, 284.24, 556.194, 283.768, 557.138, 316.331, 467.941, 317.747 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Polygon2D"]
 autoplay = "Enter"
 playback_speed = 7.0
-anims/Enter = SubResource( 1 )
+anims/Enter = SubResource( 2 )
 
 [node name="Press" type="Label" parent="."]
-self_modulate = Color( 1, 1, 1, 0.0509804 )
+self_modulate = Color( 1, 1, 1, 0.647059 )
 margin_left = 40.0
 margin_top = 20.0
 margin_right = 181.0
@@ -136,12 +156,23 @@ __meta__ = {
 }
 
 [node name="Press2" type="Label" parent="."]
-self_modulate = Color( 1, 1, 1, 0 )
+self_modulate = Color( 1, 1, 1, 0.647059 )
 margin_left = 881.828
 margin_top = 568.849
 margin_right = 1062.83
 margin_bottom = 582.849
 text = "Made By Jonnelafin"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 1.0
+margin_bottom = 300.0
+custom_fonts/font = SubResource( 3 )
+text = "DeepStuck"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }

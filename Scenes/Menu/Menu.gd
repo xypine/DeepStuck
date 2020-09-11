@@ -8,6 +8,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	Global.currentLevel = "res://Scenes/Menu/Menu.tscn"
 	pass # Replace with function body.
 
@@ -23,6 +24,7 @@ func _process(delta):
 
 func start(world):
 	#$Polygon2D/AnimationPlayer.play_backwards("Enter")
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	Global.changeLevel(world)
 func _on_Button_pressed():
 	start("res://Scenes/Main.tscn")

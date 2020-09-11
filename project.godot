@@ -15,7 +15,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="ARM"
+config/name="DeepStuck"
 run/main_scene="res://Scenes/Menu/Menu.tscn"
 boot_splash/image="res://icon.png"
 boot_splash/fullsize=false
@@ -50,5 +50,5 @@ ui_fullscreen={
 quality/intended_usage/framebuffer_allocation=0
 quality/intended_usage/framebuffer_allocation.mobile=0
 quality/2d/use_pixel_snap=true
-environment/default_clear_color=Color( 0.160784, 0.160784, 0.160784, 1 )
+environment/default_clear_color=Color( 0, 0.0156863, 0.0823529, 1 )
 environment/default_environment="res://default_env.tres"

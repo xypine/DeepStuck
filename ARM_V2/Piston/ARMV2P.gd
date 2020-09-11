@@ -104,9 +104,9 @@ func _process(_delta):
 		var ind2 = 0
 		var vp = thickness
 		for p in i.points:
-			for w in range(ind2):
-				vp = vp / thicknessChange
-			poly.append(to_local(i.to_global(p)) - Vector2(vp, 0))
+#			for w in range(ind2):
+#				vp = vp / thicknessChange
+			poly.append(to_local(i.to_global(p)) - Vector2(vp/2, 0))
 			ind2 += 1
 	var pol2 = poly + PoolVector2Array()
 	pol2.invert()
@@ -114,8 +114,8 @@ func _process(_delta):
 	var ind2 = 0
 	for p in pol2:
 		var vp = thickness
-		for w in range(pol2.size() - ind2):
-			vp = vp / thicknessChange
+#		for w in range(pol2.size() - ind2):
+#			vp = vp / thicknessChange
 		poly.append(to_local(to_global(p + Vector2(vp, 0))))
 		ind2 += 1
 	if enabled:

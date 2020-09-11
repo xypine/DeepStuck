@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/Fauna/Bushes/001/Tree002.tscn" type="PackedScene" id=1]
+
+[node name="Tree001Medium" type="Node2D"]
+
+[node name="Tree001" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0.966156, -3.68143 )
+
+[node name="Tree002" parent="." instance=ExtResource( 1 )]
+position = Vector2( 49.6611, -35.1459 )
+
+[node name="Tree003" parent="." instance=ExtResource( 1 )]
+position = Vector2( -3.52878, -80.0951 )
+
+[node name="Tree004" parent="." instance=ExtResource( 1 )]
+position = Vector2( -66.4577, -14.1696 )
+
+[node name="Tree005" parent="." instance=ExtResource( 1 )]
+position = Vector2( -68.7051, -80.0951 )

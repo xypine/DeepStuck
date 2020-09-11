@@ -1,12 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://ARM/ARM.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Scenemanager.gd" type="Script" id=3]
 [ext_resource path="res://ARM_V2/Piston/ARMV2P.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Fauna/Bushes/001/Tree002Large.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 541.794, 81.3334 )
+extents = Vector2( 511.878, 81.3334 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 58.661, 606.481 )
@@ -14,16 +15,92 @@ extents = Vector2( 58.661, 606.481 )
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 3 )
 
+[node name="BG" type="Node2D" parent="."]
+
+[node name="Tree001Large" parent="BG" instance=ExtResource( 5 )]
+position = Vector2( 120.816, 577.651 )
+
+[node name="Tree001Large2" parent="BG" instance=ExtResource( 5 )]
+position = Vector2( 290.299, 549.916 )
+
+[node name="Tree001Large3" parent="BG" instance=ExtResource( 5 )]
+position = Vector2( 469.635, 430.988 )
+
+[node name="Tree001Large4" parent="BG" instance=ExtResource( 5 )]
+position = Vector2( 584.788, 266.754 )
+
+[node name="Tree001Large5" parent="BG" instance=ExtResource( 5 )]
+position = Vector2( 611.217, 521.6 )
+
+[node name="Tree001Large6" parent="BG" instance=ExtResource( 5 )]
+position = Vector2( 922.599, 298.519 )
+
+[node name="Tree001Large7" parent="BG" instance=ExtResource( 5 )]
+position = Vector2( 847.771, 604.091 )
+
+[node name="Tree001Large8" parent="BG" instance=ExtResource( 5 )]
+position = Vector2( 1193.76, 447.978 )
+
+[node name="Tree001Large9" parent="BG" instance=ExtResource( 5 )]
+position = Vector2( 1258.71, 570.681 )
+
+[node name="Tree001Large10" parent="BG" instance=ExtResource( 5 )]
+position = Vector2( 1507.05, 572.048 )
+
+[node name="Tree001Large11" parent="BG" instance=ExtResource( 5 )]
+position = Vector2( 2002.88, 506.42 )
+
+[node name="Tree001Large12" parent="BG" instance=ExtResource( 5 )]
+position = Vector2( 2247.34, 660.398 )
+
+[node name="Tree001Large13" parent="BG" instance=ExtResource( 5 )]
+position = Vector2( 2510.85, 573.091 )
+
+[node name="Tree001Large14" parent="BG" instance=ExtResource( 5 )]
+position = Vector2( 2741.7, 416.075 )
+
+[node name="Tree001Large15" parent="BG" instance=ExtResource( 5 )]
+position = Vector2( 2822.12, 555.067 )
+
+[node name="Tree001Large16" parent="BG" instance=ExtResource( 5 )]
+position = Vector2( 3030.1, 285.765 )
+
+[node name="Tree001Large17" parent="BG" instance=ExtResource( 5 )]
+position = Vector2( 3109.38, 461.326 )
+
+[node name="Tree001Large18" parent="BG" instance=ExtResource( 5 )]
+position = Vector2( 1188.32, 709.106 )
+
+[node name="Tree001Large19" parent="BG" instance=ExtResource( 5 )]
+position = Vector2( 1448.95, 738.771 )
+
+[node name="Tree001Large20" parent="BG" instance=ExtResource( 5 )]
+position = Vector2( 1798.57, 736.652 )
+
+[node name="Tree001Large21" parent="BG" instance=ExtResource( 5 )]
+position = Vector2( 2059.2, 802.338 )
+
+[node name="Tree001Large22" parent="BG" instance=ExtResource( 5 )]
+position = Vector2( 2402.47, 791.744 )
+
 [node name="Ground" type="StaticBody2D" parent="."]
 
 [node name="GroundShape" type="Polygon2D" parent="Ground"]
 position = Vector2( 0, 520 )
 scale = Vector2( 1.0236, 1 )
 color = Color( 0, 0, 0, 1 )
-polygon = PoolVector2Array( 0, 0, 1000, 0, 1000, 100, 0, 100 )
+polygon = PoolVector2Array( 0, 0, 1000, 0, 1000, 1000, 0, 1000 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
-position = Vector2( 484.726, 607.8 )
+position = Vector2( 511.366, 605.46 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Ground"]
+position = Vector2( 507.122, 767.862 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Ground"]
+position = Vector2( 511.706, 932.4 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Ground"]
@@ -52,6 +129,11 @@ visible = false
 position = Vector2( 1084.73, 258.182 )
 shape = SubResource( 2 )
 disabled = true
+
+[node name="Line2D" type="Line2D" parent="Ground"]
+points = PoolVector2Array( 0.772556, 523.068, 1023.36, 524.284 )
+width = 2.0
+default_color = Color( 0.145098, 0.145098, 0.133333, 1 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 427.871, 268.182 )
