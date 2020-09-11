@@ -8,3 +8,4 @@ background_sky = SubResource( 1 )
 glow_enabled = true
 glow_hdr_threshold = 0.0
 glow_bicubic_upscale = true
+adjustment_enabled = true

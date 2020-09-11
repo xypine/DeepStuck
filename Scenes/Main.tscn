@@ -83,6 +83,51 @@ position = Vector2( 2059.2, 802.338 )
 [node name="Tree001Large22" parent="BG" instance=ExtResource( 5 )]
 position = Vector2( 2402.47, 791.744 )
 
+[node name="Arms" type="Node2D" parent="."]
+
+[node name="Ground" type="Node2D" parent="Arms"]
+position = Vector2( 0, 30 )
+
+[node name="ARM_Root" parent="Arms/Ground" instance=ExtResource( 1 )]
+position = Vector2( 1211.97, 1180.46 )
+target_ext = NodePath("../../../Player")
+
+[node name="ARM_Root5" parent="Arms/Ground" instance=ExtResource( 1 )]
+position = Vector2( 1459.26, 1180.46 )
+target_ext = NodePath("../../../Player")
+
+[node name="ARM_Root6" parent="Arms/Ground" instance=ExtResource( 1 )]
+position = Vector2( 1714.11, 1180.46 )
+target_ext = NodePath("../../../Player")
+
+[node name="ARM_Root7" parent="Arms/Ground" instance=ExtResource( 1 )]
+position = Vector2( 1970.84, 1180.46 )
+target_ext = NodePath("../../../Player")
+
+[node name="ARM_Root2" parent="Arms/Ground" instance=ExtResource( 1 )]
+position = Vector2( 2173.96, 1407.4 )
+target_ext = NodePath("../../../Player")
+
+[node name="ARM_Root8" parent="Arms/Ground" instance=ExtResource( 1 )]
+position = Vector2( 2421.25, 1407.4 )
+target_ext = NodePath("../../../Player")
+
+[node name="ARM_Root9" parent="Arms/Ground" instance=ExtResource( 1 )]
+position = Vector2( 2676.1, 1407.4 )
+target_ext = NodePath("../../../Player")
+
+[node name="ARM_Root10" parent="Arms/Ground" instance=ExtResource( 1 )]
+position = Vector2( 2932.83, 1407.4 )
+target_ext = NodePath("../../../Player")
+
+[node name="ARM_Root11" parent="Arms/Ground" instance=ExtResource( 1 )]
+position = Vector2( 3214.21, 872.862 )
+target_ext = NodePath("../../../Player")
+
+[node name="ARM_Root12" parent="Arms/Ground" instance=ExtResource( 1 )]
+position = Vector2( 3470.94, 872.862 )
+target_ext = NodePath("../../../Player")
+
 [node name="Ground" type="StaticBody2D" parent="."]
 
 [node name="GroundShape" type="Polygon2D" parent="Ground"]
@@ -135,54 +180,6 @@ points = PoolVector2Array( 0.772556, 523.068, 1023.36, 524.284 )
 width = 2.0
 default_color = Color( 0.145098, 0.145098, 0.133333, 1 )
 
-[node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 427.871, 268.182 )
-
-[node name="Arms" type="Node2D" parent="."]
-
-[node name="Ground" type="Node2D" parent="Arms"]
-position = Vector2( 0, 30 )
-
-[node name="ARM_Root" parent="Arms/Ground" instance=ExtResource( 1 )]
-position = Vector2( 1211.97, 1180.46 )
-target_ext = NodePath("../../../Player")
-
-[node name="ARM_Root5" parent="Arms/Ground" instance=ExtResource( 1 )]
-position = Vector2( 1459.26, 1180.46 )
-target_ext = NodePath("../../../Player")
-
-[node name="ARM_Root6" parent="Arms/Ground" instance=ExtResource( 1 )]
-position = Vector2( 1714.11, 1180.46 )
-target_ext = NodePath("../../../Player")
-
-[node name="ARM_Root7" parent="Arms/Ground" instance=ExtResource( 1 )]
-position = Vector2( 1970.84, 1180.46 )
-target_ext = NodePath("../../../Player")
-
-[node name="ARM_Root2" parent="Arms/Ground" instance=ExtResource( 1 )]
-position = Vector2( 2173.96, 1407.4 )
-target_ext = NodePath("../../../Player")
-
-[node name="ARM_Root8" parent="Arms/Ground" instance=ExtResource( 1 )]
-position = Vector2( 2421.25, 1407.4 )
-target_ext = NodePath("../../../Player")
-
-[node name="ARM_Root9" parent="Arms/Ground" instance=ExtResource( 1 )]
-position = Vector2( 2676.1, 1407.4 )
-target_ext = NodePath("../../../Player")
-
-[node name="ARM_Root10" parent="Arms/Ground" instance=ExtResource( 1 )]
-position = Vector2( 2932.83, 1407.4 )
-target_ext = NodePath("../../../Player")
-
-[node name="ARM_Root11" parent="Arms/Ground" instance=ExtResource( 1 )]
-position = Vector2( 3214.21, 872.862 )
-target_ext = NodePath("../../../Player")
-
-[node name="ARM_Root12" parent="Arms/Ground" instance=ExtResource( 1 )]
-position = Vector2( 3470.94, 872.862 )
-target_ext = NodePath("../../../Player")
-
 [node name="Box" type="RigidBody2D" parent="."]
 mass = 100.0
 
@@ -222,3 +219,6 @@ visible = false
 position = Vector2( 0, 2000 )
 color = Color( 0, 0, 0, 1 )
 polygon = PoolVector2Array( -10000, 0, 10000, 0, 10000, 1000, -10000, 1000 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 427.871, 268.182 )
