@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/Menu/Menu.gd" type="Script" id=1]
 [ext_resource path="res://Assets_External/Fonts/FontSquirrel/Caviar-Dreams/Caviar_Dreams_Bold.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Assets/Fauna/Bushes/001/Tree002Large.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Fauna/Bushes/001/Tree002Medium.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets_External/wgj-logo-dark.png" type="Texture" id=5]
+[ext_resource path="res://icon.png" type="Texture" id=6]
 
 [sub_resource type="NoiseTexture" id=1]
 
@@ -212,16 +214,32 @@ __meta__ = {
 
 [node name="Press2" type="Label" parent="."]
 self_modulate = Color( 1, 1, 1, 0.647059 )
-margin_left = 881.828
-margin_top = 568.849
-margin_right = 1062.83
-margin_bottom = 582.849
+margin_left = 817.11
+margin_top = 556.343
+margin_right = 998.112
+margin_bottom = 570.343
 text = "Made By Jonnelafin"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="."]
+[node name="icon" type="Sprite" parent="."]
+position = Vector2( 978.77, 562.414 )
+texture = ExtResource( 6 )
+
+[node name="Press3" type="Label" parent="."]
+self_modulate = Color( 1, 1, 1, 0.647059 )
+margin_left = 817.79
+margin_top = 20.0
+margin_right = 998.792
+margin_bottom = 51.0
+text = "Made For The #166
+Weekly Game Jam"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="."]
 anchor_right = 1.0
 margin_bottom = 300.0
 custom_fonts/font = SubResource( 3 )
@@ -231,5 +249,11 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="wgj-logo-dark" type="Sprite" parent="."]
+self_modulate = Color( 1, 1, 1, 0.411765 )
+position = Vector2( 982.76, 34 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 5 )
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_Button2_pressed"]

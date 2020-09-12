@@ -71,6 +71,9 @@ func _ready():
 	Global.addArm(self)
 	if reverseIK:
 		modules.invert()
+	for m in modules:
+		if m != target:
+			m.self_modulate = Color(0.5, 0.5, 0.5, 0.9)
 	pass # Replace with function body.
 
 func score(var mod):

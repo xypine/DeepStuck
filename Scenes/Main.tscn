@@ -272,7 +272,8 @@ scale = Vector2( 19.8946, 6.93853 )
 texture = ExtResource( 7 )
 script = ExtResource( 8 )
 deformation_size = Vector2( 2, 2 )
-water_level = 20.0
+water_color = Color( 0.0156863, 0.0156863, 0.0392157, 0.905882 )
+surface_color = Color( 0.380392, 0.380392, 0.380392, 0.74902 )
 surface_deformation_strength = 0.1
 
 [node name="Ground2" type="StaticBody2D" parent="."]
@@ -289,7 +290,6 @@ position = Vector2( 2841.57, 892.021 )
 scale = Vector2( 16.0498, 3.63855 )
 texture = ExtResource( 7 )
 script = ExtResource( 8 )
-water_level = 20.0
 surface_deformation_strength = 0.1
 
 [node name="Polygon2D" type="Polygon2D" parent="Ground2"]
@@ -319,7 +319,6 @@ joints = 10
 target_ext = NodePath("../Player")
 length = 50.0
 thickness = 5.0
-thicknessChange = 1.0
 [connection signal="body_entered" from="Start" to="Start" method="_on_Start_body_entered"]
 [connection signal="water_entered" from="Water2D" to="Start" method="_on_Water2D_water_entered"]
 [connection signal="water_entered" from="Ground2/Water2D" to="Start" method="_on_Water2D_water_entered"]
