@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Menu/Menu.gd" type="Script" id=1]
 [ext_resource path="res://Assets_External/Fonts/FontSquirrel/Caviar-Dreams/Caviar_Dreams_Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Assets/Fauna/Bushes/001/Tree002Large.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Fauna/Bushes/001/Tree002Medium.tscn" type="PackedScene" id=4]
 
 [sub_resource type="NoiseTexture" id=1]
 
@@ -112,13 +114,45 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="BG"]
+visible = false
 position = Vector2( 519.874, 310.337 )
 scale = Vector2( 2.08204, 1.25733 )
 texture = SubResource( 1 )
 
 [node name="Polygon2D" type="Polygon2D" parent="BG"]
+visible = false
 color = Color( 0, 0.0588235, 0.0117647, 1 )
 polygon = PoolVector2Array( -0.359024, 252.703, 46.0201, 224.163, 135.211, 233.676, 168.508, 263.406, 161.373, 293.137, 141.157, 328.813, 168.508, 316.921, 239.861, 318.11, 262.456, 337.137, 282.672, 372.813, 280.294, 407.3, 302.889, 432.274, 325.484, 476.274, 350.457, 506.005, 370.674, 529.789, 368.295, 551.194, 336.187, 566.654, 336.187, 578.546, 805.923, 576.168, 778.572, 546.438, 773.815, 521.464, 786.896, 482.22, 830.897, 471.518, 876.086, 472.707, 868.951, 451.301, 870.14, 410.868, 911.763, 389.462, 929.601, 363.3, 965.277, 357.354, 1004.52, 313.353, 1040.2, 305.029, 1043.76, 638.007, -56.2518, 621.358, -56.2518, 252.703 )
+
+[node name="Tree001Large" parent="BG" instance=ExtResource( 3 )]
+position = Vector2( 84, 484 )
+
+[node name="Tree001Large2" parent="BG" instance=ExtResource( 3 )]
+position = Vector2( 84, 602 )
+
+[node name="Tree001Medium" parent="BG" instance=ExtResource( 4 )]
+position = Vector2( 276, 570 )
+
+[node name="Tree001Medium2" parent="BG" instance=ExtResource( 4 )]
+position = Vector2( 302, 644 )
+
+[node name="Tree001Medium3" parent="BG" instance=ExtResource( 4 )]
+position = Vector2( 460, 509 )
+rotation = 3.11303
+
+[node name="Tree001Large3" parent="BG" instance=ExtResource( 3 )]
+position = Vector2( 974.657, 455.821 )
+rotation = 3.11303
+
+[node name="Tree001Large" parent="BG/Tree001Large3" instance=ExtResource( 3 )]
+position = Vector2( -149.625, 5.64362 )
+rotation = 3.0763
+
+[node name="Tree001Medium4" parent="BG" instance=ExtResource( 4 )]
+position = Vector2( 827.075, 652.382 )
+
+[node name="Tree001Medium5" parent="BG" instance=ExtResource( 4 )]
+position = Vector2( 654.541, 686.323 )
 
 [node name="Button" type="Button" parent="."]
 anchor_left = 0.5
