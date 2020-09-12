@@ -41,6 +41,7 @@ func zeroProgress():
 func zero():
 	freeze = false
 	nature = []
+	cutsDone = []
 func addArm(arm):
 	nature.append(arm)
 	print("Arm " + str(arm) + " registered")

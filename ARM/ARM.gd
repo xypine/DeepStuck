@@ -5,6 +5,7 @@ extends Node2D
 # var a = 2
 # var b = "text"
 export(float) var speed_base = .01
+export(float) var maxRange = 400
 onready var modules = [
 	$ARM_ARM,
 	$ARM_ARM/ARM_ARM2,
@@ -94,9 +95,13 @@ func _process(_delta):
 		return
 	target_ext_instance = get_node(target_ext)
 	var org = score(target)
+	if org > maxRange:
+		org = org / 2
 	var rot = 0
 	for i in modules:
 		org = score(i)
+		if org > maxRange:
+			org = org * .9
 		var speed = max(speed_base * ( (score(i)+1)/10), speed_base)
 		rot = 0
 		i.rotate(speed)

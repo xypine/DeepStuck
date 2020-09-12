@@ -135,16 +135,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="HSeparator" type="HSeparator" parent="Button"]
+margin_left = 25.9568
+margin_top = 33.0
+margin_right = 65.9568
+margin_bottom = 37.0
+
 [node name="Button2" type="Button" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -45.0
-margin_top = 16.5
-margin_right = 45.0
-margin_bottom = 49.5
-text = "Restart"
+margin_left = -50.8271
+margin_top = 17.747
+margin_right = 48.1729
+margin_bottom = 50.747
+text = "Restart Game"
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false
