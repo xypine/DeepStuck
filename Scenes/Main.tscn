@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://ARM/ARM.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Scenes/Start.gd" type="Script" id=6]
 [ext_resource path="res://addons/water2d/icon.png" type="Texture" id=7]
 [ext_resource path="res://addons/water2d/Water2D.gd" type="Script" id=8]
+[ext_resource path="res://addons/water2d/water2D_material.tres" type="Material" id=9]
 [ext_resource path="res://Scenes/001/Ground2.gd" type="Script" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -15,237 +16,6 @@ extents = Vector2( 511.878, 81.3334 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 58.661, 606.481 )
-
-[sub_resource type="Shader" id=6]
-code = "shader_type canvas_item;
-
-uniform sampler2D noise1 : hint_black;
-uniform sampler2D noise2 : hint_black;
-
-uniform vec2 deformation_speed_1 = vec2(1.0, 1.0);
-uniform vec2 deformation_speed_2 = vec2(-2.0, -2.0);
-uniform vec2 deformation_strength = vec2(1.0, 1.0);
-uniform vec2 tile_factor = vec2(1.0,1.0);
-
-uniform float water_level = 40.0;
-uniform vec4 water_color: hint_color = vec4(0.0, 0.0, 1.0, 0.5);
-
-uniform float surface_width = 2.0;
-uniform vec4 surface_color: hint_color = vec4(1.0, 1.0, 1.0, 1.0);
-uniform float surface_deformation_strength = 1.0;
-uniform int surface_type = 0;
-
-uniform float wave_speed = 1.0;
-uniform float wave_distance_attenuation = 1.0;
-uniform float wave_time_attenuation = 1.0;
-
-uniform float impact_length_0 = 10.0;
-uniform float impact_length_1 = 10.0;
-uniform float impact_length_2 = 10.0;
-uniform float impact_length_3 = 10.0;
-uniform float impact_length_4 = 10.0;
-uniform float impact_length_5 = 10.0;
-uniform float impact_length_6 = 10.0;
-uniform float impact_length_7 = 10.0;
-
-uniform float impact_height_0 = 1.0;
-uniform float impact_height_1 = 1.0;
-uniform float impact_height_2 = 1.0;
-uniform float impact_height_3 = 1.0;
-uniform float impact_height_4 = 1.0;
-uniform float impact_height_5 = 1.0;
-uniform float impact_height_6 = 1.0;
-uniform float impact_height_7 = 1.0;
-
-uniform float impact_time_0 = -1;
-uniform float impact_time_1 = -1;
-uniform float impact_time_2 = -1;
-uniform float impact_time_3 = -1;
-uniform float impact_time_4 = -1;
-uniform float impact_time_5 = -1;
-uniform float impact_time_6 = -1;
-uniform float impact_time_7 = -1;
-
-uniform vec2 impact_pos_0 = vec2(-1, -1);
-uniform vec2 impact_pos_1 = vec2(-1, -1);
-uniform vec2 impact_pos_2 = vec2(-1, -1);
-uniform vec2 impact_pos_3 = vec2(-1, -1);
-uniform vec2 impact_pos_4 = vec2(-1, -1);
-uniform vec2 impact_pos_5 = vec2(-1, -1);
-uniform vec2 impact_pos_6 = vec2(-1, -1);
-uniform vec2 impact_pos_7 = vec2(-1, -1);
-
-uniform vec2 scale = vec2(1.0, 1.0);
-
-uniform float current_time;
-
-float add_wave_impact(vec2 pixel_pos, vec2 impact_pixel_pos, float time_since_impact, float impact_height, float impact_length) {
-	if(impact_pixel_pos.y < 0.0) {
-		return 0.0;
-	}
-	float dist = length(pixel_pos - impact_pixel_pos);
-	float delay = dist / (wave_speed * 100.0);
-	
-	if(time_since_impact < delay) {
-		return 0.0;
-	}
-	
-	float amp = sin(wave_speed * 100.0 * (time_since_impact - delay) / impact_length);
-	amp /= 1.0 + dist * wave_distance_attenuation * 0.01;
-	amp *= exp(-time_since_impact * wave_time_attenuation);
-	return - amp * impact_height;
-}
-
-void fragment() {
-	vec2 u_pos_1 = UV * scale * tile_factor + TIME * deformation_speed_1 * 0.1;
-	vec2 u_pos_2 = UV * scale * tile_factor + TIME * deformation_speed_2 * 0.1;
-	vec2 offset = vec2(texture(noise1, u_pos_1).x, texture(noise2, u_pos_1).y ) - 0.5;
-	vec2 pixel_pos = UV * scale / TEXTURE_PIXEL_SIZE;
-	
-	offset += add_wave_impact(pixel_pos, impact_pos_0, current_time - impact_time_0, impact_height_0, impact_length_0);
-	offset += add_wave_impact(pixel_pos, impact_pos_1, current_time - impact_time_1, impact_height_1, impact_length_1);
-	offset += add_wave_impact(pixel_pos, impact_pos_2, current_time - impact_time_2, impact_height_2, impact_length_2);
-	offset += add_wave_impact(pixel_pos, impact_pos_3, current_time - impact_time_3, impact_height_3, impact_length_3);
-	offset += add_wave_impact(pixel_pos, impact_pos_4, current_time - impact_time_4, impact_height_4, impact_length_4);
-	offset += add_wave_impact(pixel_pos, impact_pos_5, current_time - impact_time_5, impact_height_5, impact_length_5);
-	offset += add_wave_impact(pixel_pos, impact_pos_6, current_time - impact_time_6, impact_height_6, impact_length_6);
-	offset += add_wave_impact(pixel_pos, impact_pos_7, current_time - impact_time_7, impact_height_7, impact_length_7);
-	
-	vec2 deformation = offset * deformation_strength * 0.01;
-	vec2 real_pos = (UV * scale / TEXTURE_PIXEL_SIZE) + (deformation * 500.0 * surface_deformation_strength);
-	if( real_pos.y < water_level) {
-		COLOR = textureLod(SCREEN_TEXTURE, SCREEN_UV ,1.0);
-//		return;
-	} else if( real_pos.y < water_level + surface_width) {
-		if(surface_type == 0) {
-			COLOR = surface_color;
-		} else {
-			vec4 w_color = mix(textureLod(SCREEN_TEXTURE, SCREEN_UV + offset * deformation_strength * 0.015, 0.), vec4(water_color.rgb, 1.0), water_color.a);
-			COLOR = mix(surface_color, w_color, (real_pos.y - water_level) / (surface_width));
-		}
-	} else {
-		COLOR = mix(textureLod(SCREEN_TEXTURE, SCREEN_UV + offset * deformation_strength * 0.015, 0.), vec4(water_color.rgb, 1.0), water_color.a);
-	}
-
-}"
-custom_defines = ""
-
-[sub_resource type="OpenSimplexNoise" id=7]
-
-[sub_resource type="NoiseTexture" id=3]
-seamless = true
-noise = SubResource( 7 )
-
-[sub_resource type="OpenSimplexNoise" id=4]
-seed = 1
-
-[sub_resource type="NoiseTexture" id=5]
-seamless = true
-noise = SubResource( 4 )
-
-[sub_resource type="ShaderMaterial" id=8]
-shader = SubResource( 6 )
-shader_param/deformation_speed_1 = Vector2( 1, 1 )
-shader_param/deformation_speed_2 = Vector2( -2, -2 )
-shader_param/deformation_strength = Vector2( 1, 1 )
-shader_param/tile_factor = Vector2( 0.2, 0.2 )
-shader_param/water_level = 20.0
-shader_param/water_color = Color( 0.1325, 0.1325, 0.25, 0.74902 )
-shader_param/surface_width = 2.0
-shader_param/surface_color = Color( 1, 1, 1, 1 )
-shader_param/surface_deformation_strength = 1.0
-shader_param/surface_type = 0
-shader_param/wave_speed = 1.0
-shader_param/wave_distance_attenuation = 1.0
-shader_param/wave_time_attenuation = 1.0
-shader_param/impact_length_0 = 10.0
-shader_param/impact_length_1 = 10.0
-shader_param/impact_length_2 = 10.0
-shader_param/impact_length_3 = 10.0
-shader_param/impact_length_4 = 10.0
-shader_param/impact_length_5 = 10.0
-shader_param/impact_length_6 = 10.0
-shader_param/impact_length_7 = 10.0
-shader_param/impact_height_0 = 1.0
-shader_param/impact_height_1 = 1.0
-shader_param/impact_height_2 = 1.0
-shader_param/impact_height_3 = 1.0
-shader_param/impact_height_4 = 1.0
-shader_param/impact_height_5 = 1.0
-shader_param/impact_height_6 = 1.0
-shader_param/impact_height_7 = 1.0
-shader_param/impact_time_0 = -1.0
-shader_param/impact_time_1 = -1.0
-shader_param/impact_time_2 = -1.0
-shader_param/impact_time_3 = -1.0
-shader_param/impact_time_4 = -1.0
-shader_param/impact_time_5 = -1.0
-shader_param/impact_time_6 = -1.0
-shader_param/impact_time_7 = -1.0
-shader_param/impact_pos_0 = Vector2( -1, -1 )
-shader_param/impact_pos_1 = Vector2( -1, -1 )
-shader_param/impact_pos_2 = Vector2( -1, -1 )
-shader_param/impact_pos_3 = Vector2( -1, -1 )
-shader_param/impact_pos_4 = Vector2( -1, -1 )
-shader_param/impact_pos_5 = Vector2( -1, -1 )
-shader_param/impact_pos_6 = Vector2( -1, -1 )
-shader_param/impact_pos_7 = Vector2( -1, -1 )
-shader_param/scale = Vector2( 19.8946, 6.93853 )
-shader_param/current_time = 1074.47
-shader_param/noise1 = SubResource( 3 )
-shader_param/noise2 = SubResource( 5 )
-
-[sub_resource type="ShaderMaterial" id=9]
-shader = SubResource( 6 )
-shader_param/deformation_speed_1 = Vector2( 1, 1 )
-shader_param/deformation_speed_2 = Vector2( -2, -2 )
-shader_param/deformation_strength = Vector2( 1, 1 )
-shader_param/tile_factor = Vector2( 0.2, 0.2 )
-shader_param/water_level = 20.0
-shader_param/water_color = Color( 0.1325, 0.1325, 0.25, 0.74902 )
-shader_param/surface_width = 2.0
-shader_param/surface_color = Color( 1, 1, 1, 1 )
-shader_param/surface_deformation_strength = 1.0
-shader_param/surface_type = 0
-shader_param/wave_speed = 1.0
-shader_param/wave_distance_attenuation = 1.0
-shader_param/wave_time_attenuation = 1.0
-shader_param/impact_length_0 = 10.0
-shader_param/impact_length_1 = 10.0
-shader_param/impact_length_2 = 10.0
-shader_param/impact_length_3 = 10.0
-shader_param/impact_length_4 = 10.0
-shader_param/impact_length_5 = 10.0
-shader_param/impact_length_6 = 10.0
-shader_param/impact_length_7 = 10.0
-shader_param/impact_height_0 = 1.0
-shader_param/impact_height_1 = 1.0
-shader_param/impact_height_2 = 1.0
-shader_param/impact_height_3 = 1.0
-shader_param/impact_height_4 = 1.0
-shader_param/impact_height_5 = 1.0
-shader_param/impact_height_6 = 1.0
-shader_param/impact_height_7 = 1.0
-shader_param/impact_time_0 = -1.0
-shader_param/impact_time_1 = -1.0
-shader_param/impact_time_2 = -1.0
-shader_param/impact_time_3 = -1.0
-shader_param/impact_time_4 = -1.0
-shader_param/impact_time_5 = -1.0
-shader_param/impact_time_6 = -1.0
-shader_param/impact_time_7 = -1.0
-shader_param/impact_pos_0 = Vector2( -1, -1 )
-shader_param/impact_pos_1 = Vector2( -1, -1 )
-shader_param/impact_pos_2 = Vector2( -1, -1 )
-shader_param/impact_pos_3 = Vector2( -1, -1 )
-shader_param/impact_pos_4 = Vector2( -1, -1 )
-shader_param/impact_pos_5 = Vector2( -1, -1 )
-shader_param/impact_pos_6 = Vector2( -1, -1 )
-shader_param/impact_pos_7 = Vector2( -1, -1 )
-shader_param/scale = Vector2( 13.5053, 3.63855 )
-shader_param/current_time = 1074.47
-shader_param/noise1 = SubResource( 3 )
-shader_param/noise2 = SubResource( 5 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 3 )
@@ -466,34 +236,35 @@ position = Vector2( 77.3624, 0 )
 polygon = PoolVector2Array( -80, 572, -92, 434, 952, 438, 942, 574 )
 
 [node name="Water2D" type="Sprite" parent="."]
-material = SubResource( 8 )
+material = ExtResource( 9 )
 position = Vector2( 1665.54, 784.512 )
 scale = Vector2( 19.8946, 6.93853 )
 texture = ExtResource( 7 )
 script = ExtResource( 8 )
-surface_width = 2.0
+deformation_size = Vector2( 2, 2 )
+water_level = 20.0
+surface_deformation_strength = 0.1
 
 [node name="Ground2" type="StaticBody2D" parent="."]
 script = ExtResource( 10 )
 
+[node name="Line2D" type="Line2D" parent="Ground2"]
+points = PoolVector2Array( 2157.05, 541.535, 2184.07, 526.703, 2221.59, 537.797, 2278.53, 537.371, 2314.39, 556.249, 2361.53, 646.422, 2357.56, 749.309, 2372.94, 799.365, 2573.33, 955.544, 2810.07, 977.27, 2920.74, 963.914, 3172.36, 1003.96, 3236.16, 746.793, 3333.71, 557.592, 3399.5, 516.5, 3464, 501, 3540, 527.5 )
+width = 2.0
+default_color = Color( 0.243137, 0.239216, 0.223529, 1 )
+
 [node name="Water2D" type="Sprite" parent="Ground2"]
-material = SubResource( 9 )
-position = Vector2( 2758.81, 806.591 )
-scale = Vector2( 13.5053, 3.63855 )
+material = ExtResource( 9 )
+position = Vector2( 2841.57, 892.021 )
+scale = Vector2( 16.0498, 3.63855 )
 texture = ExtResource( 7 )
 script = ExtResource( 8 )
-surface_type = 0
 water_level = 20.0
-surface_width = 2.0
+surface_deformation_strength = 0.1
 
 [node name="Polygon2D" type="Polygon2D" parent="Ground2"]
 color = Color( 0, 0, 0, 1 )
-polygon = PoolVector2Array( 2162.69, 707.647, 2149.34, 524.774, 2176.04, 504.751, 2213.42, 487.398, 2293.51, 488.733, 2333.55, 507.421, 2357.58, 580.837, 2357.58, 749.027, 2373.6, 799.751, 2426.99, 846.47, 2499.07, 847.805, 2583.17, 849.14, 2814.73, 900.786, 2974, 862, 3099, 768, 3151, 549, 3207, 521, 3301, 499, 3387, 535, 3485.69, 1027.18, 2182.72, 1028.01 )
-
-[node name="Line2D" type="Line2D" parent="Ground2"]
-points = PoolVector2Array( 2149.19, 526.506, 2214.29, 487.22, 2296.23, 488.343, 2332.15, 506.302, 2360.21, 581.507, 2359.09, 754.366, 2375.93, 803.754, 2427.56, 845.285, 2585.83, 849.775, 2813.68, 901.734, 2971.31, 861.148, 3100.62, 766.76, 3149.7, 551.557, 3209.16, 521.353, 3299.88, 498.857, 3386.71, 534.724 )
-width = 2.0
-default_color = Color( 0.243137, 0.239216, 0.223529, 1 )
+polygon = PoolVector2Array( 2142.18, 706.325, 2156.69, 542.098, 2183.38, 527.414, 2220.76, 536.758, 2278.16, 536.758, 2314.2, 555.446, 2360.92, 644.88, 2357.58, 749.027, 2373.6, 799.751, 2426.99, 846.47, 2487.85, 893.414, 2571.6, 953.995, 2810.36, 977.158, 2922.61, 964.686, 3173.85, 1003.89, 3237.99, 747.306, 3334.21, 556.654, 3400.13, 515.673, 3464.28, 501.418, 3540.9, 526.364, 3599.7, 1433.3, 2119.02, 1486.75 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground2"]
 [connection signal="body_entered" from="Start" to="Start" method="_on_Start_body_entered"]

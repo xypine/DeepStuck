@@ -4,7 +4,7 @@ extends Node2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-var speed_base = .01
+export(float) var speed_base = .01
 onready var modules = [
 	$ARM_ARM,
 	$ARM_ARM/ARM_ARM2,
