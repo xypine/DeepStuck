@@ -29,6 +29,42 @@ export(Vector2) var up = Vector2(0,-1)
 
 export(NodePath) var target_ext
 var target_ext_instance
+
+var loading = false
+func toDict():
+	var ct = []
+	for i in modules:
+		ct.append(i.transform)
+	var dict = {
+		"speed_base" : speed_base,
+#		"modules" : modules,
+#		"target" : target
+#		,
+		"reverseIK" : reverseIK,
+		"gravity" : gravity,
+		"gravityBase" : gravityBase,
+		"enabled" : enabled,
+		"up" : up
+		,
+#		"target_ext" : target_ext,
+#		"target_ext_instance" : target_ext_instance
+#		,
+		"transform" : transform,
+		"childrentrans" : ct
+	}
+	return dict
+func fromDict(dict):
+	loading = true
+	for i in dict:
+		if i == "childrentrans":
+			var ind = 0
+			for x in modules:
+				x.transform = dict[i][ind]
+				ind += 1
+		else:
+			set(i, dict[i])
+	genColl()
+	loading = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Global.addArm(self)
@@ -54,7 +90,7 @@ func score(var mod):
 	return final - (colliding.size()*1)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if Global.freeze:
+	if Global.freeze or loading:
 		return
 	target_ext_instance = get_node(target_ext)
 	var org = score(target)
@@ -70,6 +106,8 @@ func _process(_delta):
 			rot = rot + -speed*2
 		if(score(i) > org):
 			i.rotate(-rot)
+	genColl()
+func genColl():
 	var poly = PoolVector2Array()
 	for i in modules:
 		for p in i.points:

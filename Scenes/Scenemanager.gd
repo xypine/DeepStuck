@@ -28,6 +28,15 @@ func _process(delta):
 				Global.changeLevel("", true)
 func save():
 	Global.autosave = Global.player.toDict()
+	var nat = []
+	for i in Global.nature:
+		nat.append(i.toDict())
+	Global.autosave_nature = nat
 	print("Autosave: " + str(Global.autosave))
+	Global.SavePlayer.play("Saved")
 func doLoad():
 	Global.player.fromDict(Global.autosave)
+	var ind = 0
+	for i in Global.nature:
+		i.fromDict(Global.autosave_nature[ind])
+		ind += 1

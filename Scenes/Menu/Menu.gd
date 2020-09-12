@@ -8,10 +8,12 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Button2.hide()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	Global.currentLevel = "res://Scenes/Menu/Menu.tscn"
 	if str(Global.autosave) != "a":
 		$Button.text = "Continue"
+		$Button2.show()
 	pass # Replace with function body.
 
 
@@ -31,4 +33,9 @@ func start(world):
 func _on_Button_pressed():
 	if str(Global.autosave) != "a":
 		Global.loadRequested = true
+	start("res://Scenes/Main.tscn")
+
+
+func _on_Button2_pressed():
+	Global.zeroProgress()
 	start("res://Scenes/Main.tscn")

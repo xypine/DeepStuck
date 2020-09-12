@@ -18,6 +18,42 @@ export(int) var joints = 5
 export(NodePath) var target_ext
 var target_ext_instance
 # Called when the node enters the scene tree for the first time.
+
+var loading = false
+func toDict():
+	var ct = []
+	for i in modules:
+		ct.append(i.transform)
+	var dict = {
+		"speed_base" : speed_base,
+#		"modules" : modules,
+#		"target" : target
+#		,
+		"reverseIK" : reverseIK,
+		"gravity" : gravity,
+		"gravityBase" : gravityBase,
+		"enabled" : enabled,
+		"up" : up
+		,
+#		"target_ext" : target_ext,
+#		"target_ext_instance" : target_ext_instance
+#		,
+		"transform" : transform,
+		"childrentrans" : ct
+	}
+	return dict
+func fromDict(dict):
+	loading = true
+	for i in dict:
+		if i == "childrentrans":
+			var ind = 0
+			for x in modules:
+				x.transform = dict[i][ind]
+				ind += 1
+		else:
+			set(i, dict[i])
+	genColl()
+	loading = false
 func _ready():
 	$Area2D/Line2D.hide()
 	Global.addArm(self)
@@ -66,7 +102,7 @@ func score(var mod):
 var threshold = 1
 export(bool) var enableRotation = false
 func _process(_delta):
-	if Global.freeze:
+	if Global.freeze or loading:
 		return
 	target_ext_instance = get_node(target_ext)
 	var org = score(target)
@@ -99,6 +135,8 @@ func _process(_delta):
 				i.position.y -= rot
 			i.position.y = max(min(i.position.y, length*2), length+length/3)
 		ind += 1
+	genColl()
+func genColl():
 	var poly = PoolVector2Array()
 	for i in modules:
 		var ind2 = 0

@@ -14,6 +14,7 @@ var motion = Vector2()
 var walljumps = 0
 var resetJumps = false
 var doublejumps = 0
+var control = true
 
 func toDict():
 	var save_dict = {
@@ -21,7 +22,8 @@ func toDict():
 		"motion" : motion,
 		"walljumps" : walljumps,
 		"resetJumps" : resetJumps,
-		"doublejumps" : doublejumps
+		"doublejumps" : doublejumps,
+		"control" : control
 		,
 		"transform" : transform
 		,
@@ -54,22 +56,23 @@ func _physics_process(delta):
 		walljumps = 1
 		doublejumps = 1
 	var xinput = 0
-	if Input.is_action_just_pressed("ui_accept"):
-		Global.freeze = not Global.freeze
-	if Input.is_action_pressed("ui_right"):
-		motion.x += ACCELERATION
-		xinput += 1
-	elif Input.is_action_pressed("ui_left"):
-		motion.x -= ACCELERATION
-		xinput -= 1
-	if Input.is_action_just_pressed("ui_down"):
-		motion.y -= JUMP_HEIGHT * 1.5
+	if control:
+		if Input.is_action_just_pressed("ui_accept"):
+			Global.freeze = not Global.freeze
+		if Input.is_action_pressed("ui_right"):
+			motion.x += ACCELERATION
+			xinput += 1
+		elif Input.is_action_pressed("ui_left"):
+			motion.x -= ACCELERATION
+			xinput -= 1
+		if Input.is_action_just_pressed("ui_down"):
+			motion.y -= JUMP_HEIGHT * 1.5
 	
 	if is_on_floor():
 		resetJumps = true
-		if Input.is_action_just_pressed("ui_up"):
+		if Input.is_action_just_pressed("ui_up") and control:
 			motion.y += JUMP_HEIGHT
-	else:
+	elif control:
 		if is_on_wall() and Input.is_action_pressed("ui_up") and xinput > 0:
 			if walljumps > 0:
 				motion.y += JUMP_HEIGHT*2

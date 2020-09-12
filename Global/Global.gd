@@ -6,7 +6,9 @@ extends Node2D
 # var b = "text"
 
 var autosave = "a"
+var autosave_nature = "a"
 var loadRequested = false
+var cutsDone = []
 
 var nature = []
 var freeze = false
@@ -18,11 +20,18 @@ var loading = false
 
 signal loadFinished
 
+onready var SavePlayer = $SavePlayer
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	currentLevel = "res://Scenes/Main.tscn"
 	pass # Replace with function body.
-
+func zeroProgress():
+	autosave = "a"
+	autosave_nature = "a"
+	loadRequested = false
+	cutsDone = []
+	zero()
 func zero():
 	freeze = false
 	nature = []
