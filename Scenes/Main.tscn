@@ -280,7 +280,7 @@ surface_deformation_strength = 0.1
 [node name="Polygon2D" type="Polygon2D" parent="Ground2"]
 color = Color( 0.0823529, 0.0784314, 0.0784314, 1 )
 texture = ExtResource( 12 )
-texture_scale = Vector2( 0.5, 0.5 )
+texture_rotation_degrees = 25.1
 polygon = PoolVector2Array( 2142.18, 706.325, 2156.69, 542.098, 2183.38, 527.414, 2220.76, 536.758, 2278.16, 536.758, 2314.2, 555.446, 2360.92, 644.88, 2357.58, 749.027, 2373.6, 799.751, 2426.99, 846.47, 2487.85, 893.414, 2571.6, 953.995, 2810.36, 977.158, 2922.61, 964.686, 3173.85, 1003.89, 3237.99, 747.306, 3334.21, 556.654, 3400.13, 515.673, 3464.28, 501.418, 3540.9, 526.364, 3599.7, 1433.3, 2949.32, 1456.78, 2119.02, 1486.75 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground2"]
