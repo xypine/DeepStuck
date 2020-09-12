@@ -25,6 +25,7 @@ onready var SavePlayer = $SavePlayer
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	currentLevel = "res://Scenes/Main.tscn"
+	loadFromFile()
 	pass # Replace with function body.
 func zeroProgress():
 	autosave = "a"
@@ -68,3 +69,17 @@ func _process(delta):
 	if is_instance_valid(player):
 		pass
 		
+func saveToFile():
+	var save_game = File.new()
+	save_game.open("user://savegame.save", File.WRITE)
+	save_game.store_line(to_json(autosave))
+	save_game.store_line(to_json(autosave_nature))
+	save_game.close()
+func loadFromFile():
+	var save_game = File.new()
+	if not save_game.file_exists("user://savegame.save"):
+		return # Error! We don't have a save to load.
+	save_game.open("user://savegame.save", File.READ)
+	autosave = parse_json(save_game.get_line())
+	autosave_nature = parse_json(save_game.get_line())
+	save_game.close()

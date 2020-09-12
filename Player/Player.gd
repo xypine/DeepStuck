@@ -18,16 +18,16 @@ var control = true
 
 func toDict():
 	var save_dict = {
-		"UP" : UP,
-		"motion" : motion,
-		"walljumps" : walljumps,
-		"resetJumps" : resetJumps,
-		"doublejumps" : doublejumps,
-		"control" : control
+		"UP" : var2str(UP),
+		"motion" : var2str(motion),
+		"walljumps" : var2str(walljumps),
+		"resetJumps" : var2str(resetJumps),
+		"doublejumps" : var2str(doublejumps),
+		"control" : var2str(control)
 		,
-		"transform" : transform
+		"transform" : var2str(transform)
 		,
-		"freeze" : Global.freeze
+		"freeze" : var2str(Global.freeze)
 	}
 	return save_dict
 func fromDict(dict):
@@ -35,9 +35,9 @@ func fromDict(dict):
 	$Camera2D.smoothing_enabled = false
 	for i in dict:
 		if i == "freeze":
-			Global.freeze = dict[i]
+			Global.freeze = str2var(dict[i])
 		else:
-			set(i, dict[i])
+			set(i, str2var(dict[i]))
 	$Camera2D.smoothing_enabled = s
 func _process(_delta):
 	if Global.loading:

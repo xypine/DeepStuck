@@ -32,6 +32,7 @@ func save():
 	for i in Global.nature:
 		nat.append(i.toDict())
 	Global.autosave_nature = nat
+	Global.saveToFile()
 	print("Autosave: " + str(Global.autosave))
 	Global.SavePlayer.play("Saved")
 func doLoad():

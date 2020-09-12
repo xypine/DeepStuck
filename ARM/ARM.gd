@@ -34,7 +34,7 @@ var loading = false
 func toDict():
 	var ct = []
 	for i in modules:
-		ct.append(i.transform)
+		ct.append(var2str(i.transform))
 	var dict = {
 		"speed_base" : speed_base,
 #		"modules" : modules,
@@ -59,7 +59,7 @@ func fromDict(dict):
 		if i == "childrentrans":
 			var ind = 0
 			for x in modules:
-				x.transform = dict[i][ind]
+				x.transform = str2var(dict[i][ind])
 				ind += 1
 		else:
 			set(i, dict[i])
