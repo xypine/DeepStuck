@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://ARM/ARM.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://Scenes/001/Ground2.gd" type="Script" id=10]
 [ext_resource path="res://Prefabs/Lights/White001.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Assets/Textures/Generic/Black.png" type="Texture" id=12]
+[ext_resource path="res://ARM_V2/Joint/ARMV2J.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Assets/Fauna/Bushes/001/Tree002Medium.tscn" type="PackedScene" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 511.878, 81.3334 )
@@ -67,16 +69,19 @@ position = Vector2( 2247.34, 660.398 )
 position = Vector2( 2510.85, 573.091 )
 
 [node name="Tree001Large14" parent="BG" instance=ExtResource( 5 )]
-position = Vector2( 2741.7, 416.075 )
+position = Vector2( 2588.19, 434.763 )
+
+[node name="Tree001Medium7" parent="BG/Tree001Large14" instance=ExtResource( 14 )]
+position = Vector2( 743.087, -215.774 )
 
 [node name="Tree001Large15" parent="BG" instance=ExtResource( 5 )]
-position = Vector2( 2822.12, 555.067 )
+position = Vector2( 2457.71, 424.253 )
 
 [node name="Tree001Large16" parent="BG" instance=ExtResource( 5 )]
-position = Vector2( 3030.1, 285.765 )
+position = Vector2( 3511.06, 335.209 )
 
 [node name="Tree001Large17" parent="BG" instance=ExtResource( 5 )]
-position = Vector2( 3109.38, 461.326 )
+position = Vector2( 3540.89, 444.845 )
 
 [node name="Tree001Large18" parent="BG" instance=ExtResource( 5 )]
 position = Vector2( 1188.32, 709.106 )
@@ -92,6 +97,15 @@ position = Vector2( 2059.2, 802.338 )
 
 [node name="Tree001Large22" parent="BG" instance=ExtResource( 5 )]
 position = Vector2( 2402.47, 791.744 )
+
+[node name="Tree001Medium" parent="BG" instance=ExtResource( 14 )]
+position = Vector2( 3290.38, 357.633 )
+
+[node name="Tree001Medium2" parent="BG" instance=ExtResource( 14 )]
+position = Vector2( 3343.47, 494.96 )
+
+[node name="Tree001Medium3" parent="BG" instance=ExtResource( 14 )]
+position = Vector2( 3470.83, 544.404 )
 
 [node name="Arms" type="Node2D" parent="."]
 
@@ -117,6 +131,7 @@ enabled = false
 target_ext = NodePath("../../../Player")
 
 [node name="ARM_Root2" parent="Arms/Ground" instance=ExtResource( 1 )]
+visible = false
 position = Vector2( 2173.96, 1407.4 )
 enabled = false
 target_ext = NodePath("../../../Player")
@@ -292,5 +307,19 @@ occluder = SubResource( 3 )
 position = Vector2( 2238.44, 504.92 )
 texture_scale = 11.68
 energy = 1.36
+
+[node name="Light2D2" parent="." instance=ExtResource( 11 )]
+position = Vector2( 3471.58, 137.207 )
+texture_scale = 11.68
+energy = 1.36
+
+[node name="ARMV2P4" parent="." instance=ExtResource( 13 )]
+position = Vector2( 4163.47, 382.321 )
+joints = 10
+target_ext = NodePath("../Player")
+length = 50.0
+thickness = 5.0
+thicknessChange = 1.0
 [connection signal="body_entered" from="Start" to="Start" method="_on_Start_body_entered"]
 [connection signal="water_entered" from="Water2D" to="Start" method="_on_Water2D_water_entered"]
+[connection signal="water_entered" from="Ground2/Water2D" to="Start" method="_on_Water2D_water_entered"]

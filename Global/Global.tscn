@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Global/Global.gd" type="Script" id=1]
 [ext_resource path="res://default_env.tres" type="Environment" id=2]
@@ -6,7 +6,7 @@
 [sub_resource type="Animation" id=1]
 resource_name = "LoadEnd"
 tracks/0/type = "value"
-tracks/0/path = NodePath("CanvasLayer/Sprite:material:shader_param/amount")
+tracks/0/path = NodePath("CanvasLayer/LoadPolygon:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -15,27 +15,15 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 0.0, 1.0 ]
+"values": [ Vector2( 0, 0 ), Vector2( 0, -800 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("CanvasLayer/LoadPolygon:position")
+tracks/1/path = NodePath("CanvasLayer/Label:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, -800 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("CanvasLayer/Label:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
@@ -45,7 +33,7 @@ tracks/2/keys = {
 [sub_resource type="Animation" id=2]
 resource_name = "LoadStart"
 tracks/0/type = "value"
-tracks/0/path = NodePath("CanvasLayer/Sprite:material:shader_param/amount")
+tracks/0/path = NodePath("CanvasLayer/LoadPolygon:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -54,10 +42,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 1.0, 0.0 ]
+"values": [ Vector2( 0, 800 ), Vector2( 0, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("CanvasLayer/LoadPolygon:position")
+tracks/1/path = NodePath("CanvasLayer/Label:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -66,38 +54,8 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 800 ), Vector2( 0, 0 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("CanvasLayer/Label:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
-
-[sub_resource type="Shader" id=3]
-code = "shader_type canvas_item;
-
-uniform float amount = 0;
-
-void fragment() {
-    COLOR = textureLod(SCREEN_TEXTURE, SCREEN_UV, 0.0) * vec4(amount, amount, amount, 1.0);
-}"
-custom_defines = ""
-
-[sub_resource type="ShaderMaterial" id=4]
-shader = SubResource( 3 )
-shader_param/amount = 0.0
-
-[sub_resource type="NoiseTexture" id=5]
-width = 1000
-height = 1000
 
 [sub_resource type="Animation" id=6]
 tracks/0/type = "value"
@@ -153,15 +111,6 @@ anims/LoadEnd = SubResource( 1 )
 anims/LoadStart = SubResource( 2 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Sprite" type="Sprite" parent="CanvasLayer"]
-visible = false
-material = SubResource( 4 )
-position = Vector2( 508.475, 306.432 )
-scale = Vector2( 1.08755, 0.656527 )
-z_index = 500
-z_as_relative = false
-texture = SubResource( 5 )
 
 [node name="LoadPolygon" type="Polygon2D" parent="CanvasLayer"]
 color = Color( 0, 0, 0, 1 )
