@@ -8,6 +8,6 @@ texture_scale = 4.23
 shadow_enabled = true
 
 [node name="Sprite" type="Sprite" parent="."]
-self_modulate = Color( 1, 1, 1, 0.541176 )
+self_modulate = Color( 1, 1, 1, 0.309804 )
 scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 1 )
