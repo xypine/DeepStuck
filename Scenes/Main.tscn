@@ -106,11 +106,14 @@ position = Vector2( 1714.11, 1180.46 )
 target_ext = NodePath("../../../Player")
 
 [node name="ARM_Root7" parent="Arms/Ground" instance=ExtResource( 1 )]
+visible = false
 position = Vector2( 1970.84, 1180.46 )
+enabled = false
 target_ext = NodePath("../../../Player")
 
 [node name="ARM_Root2" parent="Arms/Ground" instance=ExtResource( 1 )]
 position = Vector2( 2173.96, 1407.4 )
+enabled = false
 target_ext = NodePath("../../../Player")
 
 [node name="ARM_Root8" parent="Arms/Ground" instance=ExtResource( 1 )]
