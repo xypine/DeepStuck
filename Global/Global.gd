@@ -1,5 +1,6 @@
 extends Node2D
 
+const Version = 0.1
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -24,6 +25,10 @@ onready var SavePlayer = $SavePlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print("DeepStuck v. " + str(Version) + " by Jonnelafin")
+	print("Please report bugs to https://github.com/jonnelafin/DeepStuck or send email to elias.eskelinen@pm.me")
+	print("-----")
+	print("Starting game.")
 	currentLevel = "res://Scenes/Main.tscn"
 	loadFromFile()
 	pass # Replace with function body.
@@ -75,6 +80,7 @@ func saveToFile():
 	save_game.store_line(to_json(autosave))
 	save_game.store_line(to_json(autosave_nature))
 	save_game.close()
+	print("Saved progress to savegame.save")
 func loadFromFile():
 	var save_game = File.new()
 	if not save_game.file_exists("user://savegame.save"):
@@ -83,3 +89,4 @@ func loadFromFile():
 	autosave = parse_json(save_game.get_line())
 	autosave_nature = parse_json(save_game.get_line())
 	save_game.close()
+	print("Savegame read from savegame.save succesfull.")
