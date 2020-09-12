@@ -92,7 +92,7 @@ material = SubResource( 1 )
 position = Vector2( 0, -50 )
 points = PoolVector2Array( 0, 0, 0, -10 )
 width = 5.0
-default_color = Color( 0.984314, 0.494118, 0.0784314, 0.976471 )
+default_color = Color( 1, 0.509333, 0.08, 1 )
 
 [node name="Area2D2" type="Area2D" parent="."]
 visible = false

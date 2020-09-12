@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Stars/Blocks/Constellation1.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Stars/Blocks/Constellation2.tscn" type="PackedScene" id=2]
+
+[node name="Screen1" type="Node2D"]
+
+[node name="Constellation1" parent="." instance=ExtResource( 1 )]
+position = Vector2( -38.2381, -20.5813 )
+
+[node name="Constellation2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 212.308, -35.411 )
+
+[node name="Constellation3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 30.0806, 151.054 )
+
+[node name="Constellation4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 184.762, 151.054 )
+
+[node name="Constellation5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 419.963, 102.319 )
+
+[node name="Constellation6" parent="." instance=ExtResource( 1 )]
+position = Vector2( 366.99, 242.168 )
+
+[node name="Constellation7" parent="." instance=ExtResource( 1 )]
+position = Vector2( 125.922, 340.959 )
+
+[node name="Constellation8" parent="." instance=ExtResource( 2 )]
+position = Vector2( 328.217, 364.939 )
+
+[node name="Constellation9" parent="." instance=ExtResource( 1 )]
+position = Vector2( 675.476, 338.204 )
+
+[node name="Constellation10" parent="." instance=ExtResource( 2 )]
+position = Vector2( 400.499, 471.688 )
+
+[node name="Constellation11" parent="." instance=ExtResource( 1 )]
+position = Vector2( 680.815, 485.037 )
+
+[node name="Constellation12" parent="." instance=ExtResource( 2 )]
+position = Vector2( 706.177, 156.666 )
+
+[node name="Constellation13" parent="." instance=ExtResource( 1 )]
+position = Vector2( 867.693, 63.2273 )
+
+[node name="Constellation14" parent="." instance=ExtResource( 1 )]
+position = Vector2( 889.05, 227.413 )
+
+[node name="Constellation15" parent="." instance=ExtResource( 2 )]
+position = Vector2( 885.046, 453.001 )
+
+[node name="Constellation16" parent="." instance=ExtResource( 1 )]
+position = Vector2( 174.175, 515.267 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/Menu/Menu.gd" type="Script" id=1]
 [ext_resource path="res://Assets_External/Fonts/FontSquirrel/Caviar-Dreams/Caviar_Dreams_Bold.ttf" type="DynamicFontData" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Assets/Fauna/Bushes/001/Tree002Medium.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets_External/wgj-logo-dark.png" type="Texture" id=5]
 [ext_resource path="res://icon.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Stars/Blocks/Screen1.tscn" type="PackedScene" id=7]
 
 [sub_resource type="NoiseTexture" id=1]
 
@@ -114,6 +115,9 @@ margin_bottom = 40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Screen1" parent="BG" instance=ExtResource( 7 )]
+position = Vector2( -0.448608, -2.74567 )
 
 [node name="Sprite" type="Sprite" parent="BG"]
 visible = false
@@ -224,6 +228,7 @@ __meta__ = {
 }
 
 [node name="icon" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.6 )
 position = Vector2( 978.77, 562.414 )
 texture = ExtResource( 6 )
 
@@ -255,5 +260,8 @@ self_modulate = Color( 1, 1, 1, 0.411765 )
 position = Vector2( 982.76, 34 )
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 5 )
+
+[node name="Screen1" parent="wgj-logo-dark" instance=ExtResource( 7 )]
+position = Vector2( -3295.42, 323.943 )
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_Button2_pressed"]

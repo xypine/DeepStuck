@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Stars/Blocks/Group3.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Stars/Blocks/Group2.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Stars/Blocks/Group.tscn" type="PackedScene" id=3]
+
+[node name="Constellation2" type="Node2D"]
+
+[node name="Group3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 55.653, 43.3772 )
+
+[node name="Group4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 87.6489, -40.5943 )
+
+[node name="Group2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0.836761, -67.3514 )
+
+[node name="Group1" parent="." instance=ExtResource( 3 )]
+position = Vector2( -28.8934, 35.515 )
+
+[node name="Group5" parent="." instance=ExtResource( 1 )]
+position = Vector2( -85.9753, -19.7831 )

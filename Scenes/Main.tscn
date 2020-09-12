@@ -202,7 +202,6 @@ disabled = true
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Ground"]
 position = Vector2( -59.2742, 303.8 )
 shape = SubResource( 2 )
-disabled = true
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Ground"]
 visible = false
@@ -215,7 +214,46 @@ points = PoolVector2Array( 0.772556, 523.068, 1023.36, 524.284 )
 width = 2.0
 default_color = Color( 0.145098, 0.145098, 0.133333, 1 )
 
+[node name="FG" type="Node2D" parent="."]
+
+[node name="Tree001Large" parent="FG" instance=ExtResource( 5 )]
+position = Vector2( -113.709, 569.272 )
+
+[node name="Tree001Large" parent="FG/Tree001Large" instance=ExtResource( 5 )]
+position = Vector2( -62.9289, -200.773 )
+
+[node name="Tree001Large2" parent="FG/Tree001Large" instance=ExtResource( 5 )]
+position = Vector2( -120.585, -412.141 )
+
+[node name="Tree001Large3" parent="FG/Tree001Large" instance=ExtResource( 5 )]
+position = Vector2( -226.329, -60.4072 )
+
+[node name="Tree001Large4" parent="FG/Tree001Large" instance=ExtResource( 5 )]
+position = Vector2( -225.641, -199.632 )
+
+[node name="Tree001Large5" parent="FG/Tree001Large" instance=ExtResource( 5 )]
+position = Vector2( -513.777, -414.305 )
+
+[node name="Tree001Large6" parent="FG/Tree001Large" instance=ExtResource( 5 )]
+position = Vector2( -605.174, -147.607 )
+
+[node name="Tree001Medium7" parent="FG/Tree001Large/Tree001Large6" instance=ExtResource( 14 )]
+position = Vector2( 701.442, 444.698 )
+
+[node name="Tree001Large" parent="FG/Tree001Large/Tree001Large6" instance=ExtResource( 5 )]
+position = Vector2( 439.442, 438.698 )
+
+[node name="Tree001Large2" parent="FG/Tree001Large/Tree001Large6" instance=ExtResource( 5 )]
+position = Vector2( 205.442, 220.698 )
+
+[node name="Tree001Large7" parent="FG/Tree001Large" instance=ExtResource( 5 )]
+position = Vector2( 12.7654, 181.092 )
+
+[node name="Tree001Medium7" parent="FG/Tree001Large" instance=ExtResource( 14 )]
+position = Vector2( -281.539, 33.6884 )
+
 [node name="Box" type="RigidBody2D" parent="."]
+visible = false
 mass = 100.0
 
 [node name="Polygon2D" type="Polygon2D" parent="Box"]
@@ -223,10 +261,13 @@ polygon = PoolVector2Array( 0, 0, 100, 0, 100, 100, 0, 100 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Box"]
 polygon = PoolVector2Array( 0, 0, 100, 0, 100, 100, 0, 100 )
+disabled = true
 
 [node name="ARMV2P" parent="." instance=ExtResource( 4 )]
+visible = false
 position = Vector2( -455.26, 631.183 )
 rotation = -1.57079
+enabled = false
 joints = 15
 target_ext = NodePath("../Player")
 length = 13.0
@@ -234,8 +275,10 @@ thickness = 40.0
 thicknessChange = 1.05
 
 [node name="ARMV2P2" parent="." instance=ExtResource( 4 )]
+visible = false
 position = Vector2( -59.2742, 692.862 )
 rotation = -4.71238
+enabled = false
 joints = 15
 target_ext = NodePath("../Player")
 length = 13.0
@@ -243,8 +286,10 @@ thickness = 40.0
 thicknessChange = 1.05
 
 [node name="ARMV2P3" parent="." instance=ExtResource( 4 )]
+visible = false
 position = Vector2( -659.401, 1297.4 )
 rotation = -3.14159
+enabled = false
 target_ext = NodePath("../Player")
 length = 120.0
 thickness = 80.0
