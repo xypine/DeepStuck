@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=6 format=2]
 
-[sub_resource type="Shader" id=1]
+[sub_resource type="Shader" id=6]
 code = "shader_type canvas_item;
 
 uniform sampler2D noise1 : hint_black;
@@ -98,7 +98,8 @@ void fragment() {
 	vec2 deformation = offset * deformation_strength * 0.01;
 	vec2 real_pos = (UV * scale / TEXTURE_PIXEL_SIZE) + (deformation * 500.0 * surface_deformation_strength);
 	if( real_pos.y < water_level) {
-		return;
+		COLOR = textureLod(SCREEN_TEXTURE, SCREEN_UV ,1.0);
+//		return;
 	} else if( real_pos.y < water_level + surface_width) {
 		if(surface_type == 0) {
 			COLOR = surface_color;
@@ -113,11 +114,11 @@ void fragment() {
 }"
 custom_defines = ""
 
-[sub_resource type="OpenSimplexNoise" id=2]
+[sub_resource type="OpenSimplexNoise" id=7]
 
 [sub_resource type="NoiseTexture" id=3]
 seamless = true
-noise = SubResource( 2 )
+noise = SubResource( 7 )
 
 [sub_resource type="OpenSimplexNoise" id=4]
 seed = 1
@@ -127,12 +128,12 @@ seamless = true
 noise = SubResource( 4 )
 
 [resource]
-shader = SubResource( 1 )
+shader = SubResource( 6 )
 shader_param/deformation_speed_1 = Vector2( 1, 1 )
 shader_param/deformation_speed_2 = Vector2( -2, -2 )
 shader_param/deformation_strength = Vector2( 1, 1 )
 shader_param/tile_factor = Vector2( 0.2, 0.2 )
-shader_param/water_level = 20.0
+shader_param/water_level = 4.0
 shader_param/water_color = Color( 0.1325, 0.1325, 0.25, 0.74902 )
 shader_param/surface_width = 2.0
 shader_param/surface_color = Color( 1, 1, 1, 1 )
@@ -173,7 +174,7 @@ shader_param/impact_pos_4 = Vector2( -1, -1 )
 shader_param/impact_pos_5 = Vector2( -1, -1 )
 shader_param/impact_pos_6 = Vector2( -1, -1 )
 shader_param/impact_pos_7 = Vector2( -1, -1 )
-shader_param/scale = Vector2( 15.9315, 3.3811 )
-shader_param/current_time = 620.156
+shader_param/scale = Vector2( 13.5053, 3.63855 )
+shader_param/current_time = 668.931
 shader_param/noise1 = SubResource( 3 )
 shader_param/noise2 = SubResource( 5 )
