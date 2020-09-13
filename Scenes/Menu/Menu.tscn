@@ -85,7 +85,7 @@ tracks/5/keys = {
 "values": [ Color( 1, 1, 1, 0.0509804 ), Color( 1, 1, 1, 0.647059 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("../ParallaxBackground/ParallaxLayer/Press2:self_modulate")
+tracks/6/path = NodePath("../ParallaxBackground/ParallaxLayer/Made By:self_modulate")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -286,12 +286,12 @@ layer = 0
 position = Vector2( 0, -150 )
 motion_scale = Vector2( 1, 0.5 )
 
-[node name="Press3" type="Label" parent="ParallaxBackground/ParallaxLayer"]
+[node name="Made For" type="Label" parent="ParallaxBackground/ParallaxLayer"]
 self_modulate = Color( 1, 1, 1, 0.647059 )
-margin_left = 817.79
-margin_top = 20.0
-margin_right = 998.792
-margin_bottom = 51.0
+margin_left = 818.848
+margin_top = 561.736
+margin_right = 999.85
+margin_bottom = 592.736
 text = "Made For The #166
 Weekly Game Jam"
 __meta__ = {
@@ -300,15 +300,15 @@ __meta__ = {
 
 [node name="icon" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 modulate = Color( 1, 1, 1, 0.6 )
-position = Vector2( 978.77, 562.414 )
+position = Vector2( 987.323, 34.4384 )
 texture = ExtResource( 6 )
 
-[node name="Press2" type="Label" parent="ParallaxBackground/ParallaxLayer"]
+[node name="Made By" type="Label" parent="ParallaxBackground/ParallaxLayer"]
 self_modulate = Color( 1, 1, 1, 0.647059 )
-margin_left = 817.11
-margin_top = 556.343
-margin_right = 998.112
-margin_bottom = 570.343
+margin_left = 823.546
+margin_top = 31.4334
+margin_right = 1004.55
+margin_bottom = 45.4334
 text = "Made By Jonnelafin"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -327,7 +327,7 @@ __meta__ = {
 
 [node name="wgj-logo-dark" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 self_modulate = Color( 1, 1, 1, 0.411765 )
-position = Vector2( 982.76, 34 )
+position = Vector2( 975.238, 566.94 )
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 5 )
 
