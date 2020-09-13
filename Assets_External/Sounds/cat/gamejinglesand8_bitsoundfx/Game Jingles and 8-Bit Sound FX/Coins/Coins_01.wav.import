@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Coins_01.wav-fd3281b03a2478d35dbb881237e6c0dd.sample"
+
+[deps]
+
+source_file="res://Assets_External/Sounds/cat/gamejinglesand8_bitsoundfx/Game Jingles and 8-Bit Sound FX/Coins/Coins_01.wav"
+dest_files=[ "res://.import/Coins_01.wav-fd3281b03a2478d35dbb881237e6c0dd.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

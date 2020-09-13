@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Wrong.ogg-f4153f370478853d6872375a7066a471.oggstr"
+
+[deps]
+
+source_file="res://Assets_External/Sounds/cat/cuteguisoundsset/Ogg/Wrong.ogg"
+dest_files=[ "res://.import/Wrong.ogg-f4153f370478853d6872375a7066a471.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

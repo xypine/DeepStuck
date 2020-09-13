@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Cute_Error_04.wav-cf7991ca4a50cb40168c6b95eeb880d8.sample"
+
+[deps]
+
+source_file="res://Assets_External/Sounds/cat/gamejinglesand8_bitsoundfx/Game Jingles and 8-Bit Sound FX/UI/Cute_Error_04.wav"
+dest_files=[ "res://.import/Cute_Error_04.wav-cf7991ca4a50cb40168c6b95eeb880d8.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

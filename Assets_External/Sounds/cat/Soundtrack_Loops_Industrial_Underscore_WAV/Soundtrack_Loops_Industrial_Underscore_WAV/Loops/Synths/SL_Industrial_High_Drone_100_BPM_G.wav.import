@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/SL_Industrial_High_Drone_100_BPM_G.wav-bb3677d17fa422d3fc84d20185d81bad.sample"
+
+[deps]
+
+source_file="res://Assets_External/Sounds/cat/Soundtrack_Loops_Industrial_Underscore_WAV/Soundtrack_Loops_Industrial_Underscore_WAV/Loops/Synths/SL_Industrial_High_Drone_100_BPM_G.wav"
+dest_files=[ "res://.import/SL_Industrial_High_Drone_100_BPM_G.wav-bb3677d17fa422d3fc84d20185d81bad.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

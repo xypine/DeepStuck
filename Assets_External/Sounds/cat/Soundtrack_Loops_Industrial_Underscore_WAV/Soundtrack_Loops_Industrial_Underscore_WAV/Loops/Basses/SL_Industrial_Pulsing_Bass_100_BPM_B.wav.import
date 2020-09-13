@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/SL_Industrial_Pulsing_Bass_100_BPM_B.wav-efa7eba937067858681f4cc81bf30f09.sample"
+
+[deps]
+
+source_file="res://Assets_External/Sounds/cat/Soundtrack_Loops_Industrial_Underscore_WAV/Soundtrack_Loops_Industrial_Underscore_WAV/Loops/Basses/SL_Industrial_Pulsing_Bass_100_BPM_B.wav"
+dest_files=[ "res://.import/SL_Industrial_Pulsing_Bass_100_BPM_B.wav-efa7eba937067858681f4cc81bf30f09.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

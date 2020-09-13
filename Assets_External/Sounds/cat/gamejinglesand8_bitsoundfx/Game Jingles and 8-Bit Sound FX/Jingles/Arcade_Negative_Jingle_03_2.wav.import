@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Arcade_Negative_Jingle_03_2.wav-70fc0469f1d2f7f1ca33843422b8a923.sample"
+
+[deps]
+
+source_file="res://Assets_External/Sounds/cat/gamejinglesand8_bitsoundfx/Game Jingles and 8-Bit Sound FX/Jingles/Arcade_Negative_Jingle_03_2.wav"
+dest_files=[ "res://.import/Arcade_Negative_Jingle_03_2.wav-70fc0469f1d2f7f1ca33843422b8a923.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -14,6 +14,11 @@ func _ready():
 	if str(Global.autosave) != "a":
 		$Button.text = "Continue"
 		$Button2.show()
+	if not Global.notfirst:
+		Global.notfirst = true
+		$Camera2D/AnimationPlayer.play("In")
+	else:
+		$Camera2D/AnimationPlayer.play("other")
 	pass # Replace with function body.
 
 

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Close_Screen_02.wav-8c4b7df6b59655ccb0ab37847d964d46.sample"
+
+[deps]
+
+source_file="res://Assets_External/Sounds/cat/gamejinglesand8_bitsoundfx/Game Jingles and 8-Bit Sound FX/UI/Close_Screen_02.wav"
+dest_files=[ "res://.import/Close_Screen_02.wav-8c4b7df6b59655ccb0ab37847d964d46.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

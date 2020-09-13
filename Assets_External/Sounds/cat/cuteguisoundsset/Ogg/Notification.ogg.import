@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Notification.ogg-2c0886aa9e7051ee93b375f1b8808596.oggstr"
+
+[deps]
+
+source_file="res://Assets_External/Sounds/cat/cuteguisoundsset/Ogg/Notification.ogg"
+dest_files=[ "res://.import/Notification.ogg-2c0886aa9e7051ee93b375f1b8808596.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

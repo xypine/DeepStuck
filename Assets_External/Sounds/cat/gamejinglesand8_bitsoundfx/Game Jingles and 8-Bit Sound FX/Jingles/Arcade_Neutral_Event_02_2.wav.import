@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Arcade_Neutral_Event_02_2.wav-1f0b1a59cb2723de67a62e3480fcc24b.sample"
+
+[deps]
+
+source_file="res://Assets_External/Sounds/cat/gamejinglesand8_bitsoundfx/Game Jingles and 8-Bit Sound FX/Jingles/Arcade_Neutral_Event_02_2.wav"
+dest_files=[ "res://.import/Arcade_Neutral_Event_02_2.wav-1f0b1a59cb2723de67a62e3480fcc24b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/8bit_drowning.wav-34b1f3c1940c6096fcc3a50ff1268011.sample"
+
+[deps]
+
+source_file="res://Assets_External/Sounds/cat/gamejinglesand8_bitsoundfx/Game Jingles and 8-Bit Sound FX/Misc/8bit_drowning.wav"
+dest_files=[ "res://.import/8bit_drowning.wav-34b1f3c1940c6096fcc3a50ff1268011.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

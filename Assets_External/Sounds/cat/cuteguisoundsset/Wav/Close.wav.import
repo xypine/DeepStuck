@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Close.wav-b27bfe9cd198eee0d8fc2cd504f28a46.sample"
+
+[deps]
+
+source_file="res://Assets_External/Sounds/cat/cuteguisoundsset/Wav/Close.wav"
+dest_files=[ "res://.import/Close.wav-b27bfe9cd198eee0d8fc2cd504f28a46.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

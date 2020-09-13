@@ -22,6 +22,7 @@ var loading = false
 signal loadFinished
 
 onready var SavePlayer = $SavePlayer
+var notfirst = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

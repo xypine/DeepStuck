@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Stage4.wav-8e7f8a2839aa0668b12c6556cfdb7c01.sample"
+
+[deps]
+
+source_file="res://Assets_External/Sounds/cat/shmupmusicpack/ShmupMusicPack/Stage4.wav"
+dest_files=[ "res://.import/Stage4.wav-8e7f8a2839aa0668b12c6556cfdb7c01.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

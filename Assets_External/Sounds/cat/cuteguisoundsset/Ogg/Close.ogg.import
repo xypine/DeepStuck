@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Close.ogg-7755ca1f76eeb6abc228f2ac4f1ed259.oggstr"
+
+[deps]
+
+source_file="res://Assets_External/Sounds/cat/cuteguisoundsset/Ogg/Close.ogg"
+dest_files=[ "res://.import/Close.ogg-7755ca1f76eeb6abc228f2ac4f1ed259.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

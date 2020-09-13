@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Achievement.ogg-b787cdeaaa3580bdc41dc5e831b21b93.oggstr"
+
+[deps]
+
+source_file="res://Assets_External/Sounds/cat/cuteguisoundsset/Ogg/Achievement.ogg"
+dest_files=[ "res://.import/Achievement.ogg-b787cdeaaa3580bdc41dc5e831b21b93.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

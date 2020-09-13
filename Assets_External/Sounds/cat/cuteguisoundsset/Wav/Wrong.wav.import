@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Wrong.wav-a84d7eb9fcd894e73f214d60e61e4038.sample"
+
+[deps]
+
+source_file="res://Assets_External/Sounds/cat/cuteguisoundsset/Wav/Wrong.wav"
+dest_files=[ "res://.import/Wrong.wav-a84d7eb9fcd894e73f214d60e61e4038.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

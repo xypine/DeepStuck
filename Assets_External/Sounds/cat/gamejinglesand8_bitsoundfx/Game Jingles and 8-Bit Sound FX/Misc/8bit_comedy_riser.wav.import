@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/8bit_comedy_riser.wav-e174f208abad666a06f823cdf39ff645.sample"
+
+[deps]
+
+source_file="res://Assets_External/Sounds/cat/gamejinglesand8_bitsoundfx/Game Jingles and 8-Bit Sound FX/Misc/8bit_comedy_riser.wav"
+dest_files=[ "res://.import/8bit_comedy_riser.wav-e174f208abad666a06f823cdf39ff645.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

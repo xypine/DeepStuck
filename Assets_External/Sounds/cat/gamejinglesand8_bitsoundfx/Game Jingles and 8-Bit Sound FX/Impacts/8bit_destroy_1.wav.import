@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/8bit_destroy_1.wav-96f9492781dd0785abdcc86fc68cd0a3.sample"
+
+[deps]
+
+source_file="res://Assets_External/Sounds/cat/gamejinglesand8_bitsoundfx/Game Jingles and 8-Bit Sound FX/Impacts/8bit_destroy_1.wav"
+dest_files=[ "res://.import/8bit_destroy_1.wav-96f9492781dd0785abdcc86fc68cd0a3.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

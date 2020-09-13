@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/SL_Industrial_KickCrash_105_E.wav-7a61bca51bc5a7aa6788a74997193bd4.sample"
+
+[deps]
+
+source_file="res://Assets_External/Sounds/cat/Soundtrack_Loops_Industrial_Underscore_WAV/Soundtrack_Loops_Industrial_Underscore_WAV/Loops/Drums/SL_Industrial_KickCrash_105_E.wav"
+dest_files=[ "res://.import/SL_Industrial_KickCrash_105_E.wav-7a61bca51bc5a7aa6788a74997193bd4.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

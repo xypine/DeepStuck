@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/SL_Industrial_Hit_1_100_BPM.wav-fb9ec483130538db4c475f1ae24d6c43.sample"
+
+[deps]
+
+source_file="res://Assets_External/Sounds/cat/Soundtrack_Loops_Industrial_Underscore_WAV/Soundtrack_Loops_Industrial_Underscore_WAV/Loops/SFX/SL_Industrial_Hit_1_100_BPM.wav"
+dest_files=[ "res://.import/SL_Industrial_Hit_1_100_BPM.wav-fb9ec483130538db4c475f1ae24d6c43.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

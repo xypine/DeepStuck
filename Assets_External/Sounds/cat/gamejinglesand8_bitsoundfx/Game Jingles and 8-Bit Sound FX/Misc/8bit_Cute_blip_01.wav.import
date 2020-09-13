@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/8bit_Cute_blip_01.wav-df9e85ee24c226be4a4000a104b9d87b.sample"
+
+[deps]
+
+source_file="res://Assets_External/Sounds/cat/gamejinglesand8_bitsoundfx/Game Jingles and 8-Bit Sound FX/Misc/8bit_Cute_blip_01.wav"
+dest_files=[ "res://.import/8bit_Cute_blip_01.wav-df9e85ee24c226be4a4000a104b9d87b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
