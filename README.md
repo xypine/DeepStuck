@@ -4,3 +4,7 @@ The engine used is Godot 3.
 
 # Credits
 Water2D Godot plugin by Thibault Truffert, license [here](https://github.com/jonnelafin/DeepStuck/blob/master/addons/water2d/LICENSE).
+
+# Screenshots or Something
+![Title](Showcase/Title)
+![Gameplay](Showcase/Gameplay01)
