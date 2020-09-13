@@ -8,15 +8,17 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	if str(Global.autosave) != "a" and Global.loadRequested:
 		Global.loadRequested = false
 		doLoad()
+	print(str(len(Global.nature)) + " A.R.M.s loaded.")
 	pass # Replace with function body.
 
 var save1
 var flag = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		save()
 		Global.changeLevel("res://Scenes/Menu/Menu.tscn")

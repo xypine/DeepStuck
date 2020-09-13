@@ -27,6 +27,6 @@ func _on_Start_body_entered(body):
 		Global.cutsDone.append("start")
 
 
-func _on_Water2D_water_entered(water, impact_pos, body_id, body, body_shape, area_shape):
+func _on_Water2D_water_entered(_water, _impact_pos, _body_id, body, _body_shape, _area_shape):
 	if body == Global.player:
 		Global.changeLevel("", true)

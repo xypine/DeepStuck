@@ -48,7 +48,7 @@ func _process(_delta):
 		z = min(z+0.02, 1)
 		$Camera2D.zoom = Vector2(z,z)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	motion.y += GRAVITY
 	motion.x = motion.x / 1.2
 	if resetJumps:

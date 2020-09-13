@@ -153,7 +153,7 @@ func _on_Area2D_body_exited(body):
 		colliding.remove(colliding.find(body))
 	is_colliding = colliding.size() > 0
 
-func _on_Area2D_body_shape_exited(body_id, body, body_shape, area_shape):
+func _on_Area2D_body_shape_exited(body_id, _body, _body_shape, _area_shape):
 	pass
 	if ( body_id in colliding):
 		colliding.remove(colliding.find(body_id))

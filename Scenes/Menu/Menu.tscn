@@ -101,7 +101,7 @@ tracks/6/keys = {
 size = 64
 font_data = ExtResource( 2 )
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=4]
 resource_name = "Default"
 length = 0.1
 tracks/0/type = "value"
@@ -129,8 +129,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0, -150 ) ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "In"
+[sub_resource type="Animation" id=5]
 length = 2.0
 tracks/0/type = "bezier"
 tracks/0/path = NodePath(".:position:x")
@@ -153,8 +152,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0.2, 2 )
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "other"
+[sub_resource type="Animation" id=6]
 length = 0.032
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
@@ -298,7 +296,7 @@ __meta__ = {
 layer = 0
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2( 0, -100 )
+position = Vector2( 0, -150 )
 motion_scale = Vector2( 1, 0.5 )
 
 [node name="Made For" type="Label" parent="ParallaxBackground/ParallaxLayer"]
@@ -353,8 +351,8 @@ current = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D"]
 autoplay = "Default"
 playback_speed = 0.5
-anims/Default = SubResource( 6 )
-anims/In = SubResource( 4 )
-anims/other = SubResource( 5 )
+anims/Default = SubResource( 4 )
+anims/In = SubResource( 5 )
+anims/other = SubResource( 6 )
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_Button2_pressed"]

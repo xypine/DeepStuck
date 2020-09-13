@@ -68,7 +68,7 @@ func changeLevel(level, restart=false, fake=false):
 	loading = false
 	emit_signal("loadFinished")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("ui_retry"):
 		changeLevel(currentLevel, true)
 	if Input.is_action_just_pressed("ui_fullscreen"):
@@ -78,6 +78,10 @@ func _process(delta):
 		
 func saveToFile():
 	var save_game = File.new()
+	if save_game.file_exists("user://savegame.save"):
+		var dir = Directory.new()
+		dir.remove("user://savegame.save.bak")
+		dir.rename("user://savegame.save", "user://savegame.save.bak")
 	save_game.open("user://savegame.save", File.WRITE)
 	save_game.store_line(to_json(autosave))
 	save_game.store_line(to_json(autosave_nature))

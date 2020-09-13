@@ -31,109 +31,228 @@ script = ExtResource( 3 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Stars"]
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="Stars/CanvasLayer"]
-scroll_offset = Vector2( 1, 1 )
-scroll_base_scale = Vector2( 100, 100 )
-scroll_limit_begin = Vector2( 1000, 1000 )
-scroll_limit_end = Vector2( 1000, 1000 )
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Stars"]
+layer = -128
 
-[node name="StarControl" type="Node2D" parent="Stars/CanvasLayer/ParallaxBackground"]
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Stars/ParallaxBackground"]
+motion_scale = Vector2( 0.001, 0.001 )
+
+[node name="StarControl" type="Node2D" parent="Stars/ParallaxBackground/ParallaxLayer"]
 modulate = Color( 1, 1, 1, 0.52549 )
 
-[node name="Screen1" parent="Stars/CanvasLayer/ParallaxBackground/StarControl" instance=ExtResource( 4 )]
+[node name="Screen1" parent="Stars/ParallaxBackground/ParallaxLayer/StarControl" instance=ExtResource( 4 )]
 position = Vector2( 12.1359, -9.18613 )
 
-[node name="Screen2" parent="Stars/CanvasLayer/ParallaxBackground/StarControl" instance=ExtResource( 4 )]
+[node name="Screen4" parent="Stars/ParallaxBackground/ParallaxLayer/StarControl" instance=ExtResource( 4 )]
+position = Vector2( -1094.03, -4.82209 )
+
+[node name="Screen5" parent="Stars/ParallaxBackground/ParallaxLayer/StarControl" instance=ExtResource( 4 )]
+position = Vector2( -244.848, -400.437 )
+
+[node name="Screen2" parent="Stars/ParallaxBackground/ParallaxLayer/StarControl" instance=ExtResource( 4 )]
 position = Vector2( 1025.82, 5.05371 )
 
-[node name="Screen3" parent="Stars/CanvasLayer/ParallaxBackground/StarControl" instance=ExtResource( 4 )]
+[node name="Screen6" parent="Stars/ParallaxBackground/ParallaxLayer/StarControl" instance=ExtResource( 4 )]
+position = Vector2( -1022.81, -657.665 )
+
+[node name="Screen7" parent="Stars/ParallaxBackground/ParallaxLayer/StarControl" instance=ExtResource( 4 )]
+position = Vector2( 768.796, -554.351 )
+
+[node name="Screen3" parent="Stars/ParallaxBackground/ParallaxLayer/StarControl" instance=ExtResource( 4 )]
 position = Vector2( 2164.38, 4.98168 )
 
-[node name="Screen1" parent="Stars/CanvasLayer/ParallaxBackground/StarControl/Screen3" instance=ExtResource( 4 )]
+[node name="Screen1" parent="Stars/ParallaxBackground/ParallaxLayer/StarControl/Screen3" instance=ExtResource( 4 )]
 position = Vector2( 1166.51, -58.686 )
 
-[node name="Screen2" parent="Stars/CanvasLayer/ParallaxBackground/StarControl/Screen3" instance=ExtResource( 4 )]
+[node name="Screen2" parent="Stars/ParallaxBackground/ParallaxLayer/StarControl/Screen3" instance=ExtResource( 4 )]
 position = Vector2( 2112.86, -116.017 )
+
+[node name="BGBG" type="Node2D" parent="."]
+visible = false
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="BGBG"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="BGBG/ParallaxBackground"]
+visible = false
+motion_scale = Vector2( 0.1, 0.1 )
+
+[node name="treeControl" type="Node2D" parent="BGBG/ParallaxBackground/ParallaxLayer"]
+visible = false
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( -201.547, -112.137 )
+
+[node name="Tree001Medium" parent="BGBG/ParallaxBackground/ParallaxLayer/treeControl" instance=ExtResource( 14 )]
+position = Vector2( 60.9339, 237.714 )
+
+[node name="Tree001Medium2" parent="BGBG/ParallaxBackground/ParallaxLayer/treeControl" instance=ExtResource( 14 )]
+position = Vector2( 155.934, 237.714 )
+
+[node name="Tree001Medium3" parent="BGBG/ParallaxBackground/ParallaxLayer/treeControl" instance=ExtResource( 14 )]
+position = Vector2( 240.934, 179.714 )
+
+[node name="Tree001Medium4" parent="BGBG/ParallaxBackground/ParallaxLayer/treeControl" instance=ExtResource( 14 )]
+position = Vector2( 77.9339, 83.7135 )
+
+[node name="Tree001Medium5" parent="BGBG/ParallaxBackground/ParallaxLayer/treeControl" instance=ExtResource( 14 )]
+position = Vector2( 317.934, 252.714 )
+
+[node name="Tree001Medium6" parent="BGBG/ParallaxBackground/ParallaxLayer/treeControl" instance=ExtResource( 14 )]
+position = Vector2( -2.06607, 231.714 )
+
+[node name="Tree001Medium7" parent="BGBG/ParallaxBackground/ParallaxLayer/treeControl" instance=ExtResource( 14 )]
+position = Vector2( 445.555, 247.949 )
+
+[node name="Tree001Medium8" parent="BGBG/ParallaxBackground/ParallaxLayer/treeControl" instance=ExtResource( 14 )]
+position = Vector2( 649.769, 266.181 )
+
+[node name="Tree001Medium9" parent="BGBG/ParallaxBackground/ParallaxLayer/treeControl" instance=ExtResource( 14 )]
+position = Vector2( 744.769, 266.181 )
+
+[node name="Tree001Medium10" parent="BGBG/ParallaxBackground/ParallaxLayer/treeControl" instance=ExtResource( 14 )]
+position = Vector2( 829.769, 208.181 )
+
+[node name="Tree001Medium11" parent="BGBG/ParallaxBackground/ParallaxLayer/treeControl" instance=ExtResource( 14 )]
+position = Vector2( 666.769, 112.181 )
+
+[node name="Tree001Medium12" parent="BGBG/ParallaxBackground/ParallaxLayer/treeControl" instance=ExtResource( 14 )]
+position = Vector2( 906.769, 281.181 )
+
+[node name="Tree001Medium13" parent="BGBG/ParallaxBackground/ParallaxLayer/treeControl" instance=ExtResource( 14 )]
+position = Vector2( 586.769, 260.181 )
+
+[node name="Tree001Medium14" parent="BGBG/ParallaxBackground/ParallaxLayer/treeControl" instance=ExtResource( 14 )]
+position = Vector2( 1034.39, 276.417 )
+
+[node name="treeControl2" type="Node2D" parent="BGBG/ParallaxBackground/ParallaxLayer"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 38.1822, 54.175 )
+
+[node name="Tree001Medium" parent="BGBG/ParallaxBackground/ParallaxLayer/treeControl2" instance=ExtResource( 14 )]
+position = Vector2( 60.9339, 237.714 )
+
+[node name="Tree001Medium2" parent="BGBG/ParallaxBackground/ParallaxLayer/treeControl2" instance=ExtResource( 14 )]
+position = Vector2( 155.934, 237.714 )
+
+[node name="Tree001Medium3" parent="BGBG/ParallaxBackground/ParallaxLayer/treeControl2" instance=ExtResource( 14 )]
+position = Vector2( 240.934, 179.714 )
+
+[node name="Tree001Medium4" parent="BGBG/ParallaxBackground/ParallaxLayer/treeControl2" instance=ExtResource( 14 )]
+position = Vector2( 77.9339, 83.7135 )
+
+[node name="Tree001Medium5" parent="BGBG/ParallaxBackground/ParallaxLayer/treeControl2" instance=ExtResource( 14 )]
+position = Vector2( 317.934, 252.714 )
+
+[node name="Tree001Medium6" parent="BGBG/ParallaxBackground/ParallaxLayer/treeControl2" instance=ExtResource( 14 )]
+position = Vector2( -2.06607, 231.714 )
+
+[node name="Tree001Medium7" parent="BGBG/ParallaxBackground/ParallaxLayer/treeControl2" instance=ExtResource( 14 )]
+position = Vector2( 445.555, 247.949 )
+
+[node name="Tree001Medium8" parent="BGBG/ParallaxBackground/ParallaxLayer/treeControl2" instance=ExtResource( 14 )]
+position = Vector2( 649.769, 266.181 )
+
+[node name="Tree001Medium9" parent="BGBG/ParallaxBackground/ParallaxLayer/treeControl2" instance=ExtResource( 14 )]
+position = Vector2( 744.769, 266.181 )
+
+[node name="Tree001Medium10" parent="BGBG/ParallaxBackground/ParallaxLayer/treeControl2" instance=ExtResource( 14 )]
+position = Vector2( 829.769, 208.181 )
+
+[node name="Tree001Medium11" parent="BGBG/ParallaxBackground/ParallaxLayer/treeControl2" instance=ExtResource( 14 )]
+position = Vector2( 666.769, 112.181 )
+
+[node name="Tree001Medium12" parent="BGBG/ParallaxBackground/ParallaxLayer/treeControl2" instance=ExtResource( 14 )]
+position = Vector2( 906.769, 281.181 )
+
+[node name="Tree001Medium13" parent="BGBG/ParallaxBackground/ParallaxLayer/treeControl2" instance=ExtResource( 14 )]
+position = Vector2( 586.769, 260.181 )
+
+[node name="Tree001Medium14" parent="BGBG/ParallaxBackground/ParallaxLayer/treeControl2" instance=ExtResource( 14 )]
+position = Vector2( 1034.39, 276.417 )
 
 [node name="BG" type="Node2D" parent="."]
 
-[node name="Tree001Large" parent="BG" instance=ExtResource( 5 )]
-position = Vector2( 120.816, 577.651 )
+[node name="ParallaxBackground" type="ParallaxBackground" parent="BG"]
+layer = -50
 
-[node name="Tree001Large2" parent="BG" instance=ExtResource( 5 )]
-position = Vector2( 290.299, 549.916 )
+[node name="ParallaxLayer" type="ParallaxLayer" parent="BG/ParallaxBackground"]
 
-[node name="Tree001Large3" parent="BG" instance=ExtResource( 5 )]
-position = Vector2( 469.635, 430.988 )
-
-[node name="Tree001Large4" parent="BG" instance=ExtResource( 5 )]
-position = Vector2( 584.788, 266.754 )
-
-[node name="Tree001Large5" parent="BG" instance=ExtResource( 5 )]
-position = Vector2( 611.217, 521.6 )
-
-[node name="Tree001Large6" parent="BG" instance=ExtResource( 5 )]
-position = Vector2( 922.599, 298.519 )
-
-[node name="Tree001Large7" parent="BG" instance=ExtResource( 5 )]
-position = Vector2( 847.771, 604.091 )
-
-[node name="Tree001Large8" parent="BG" instance=ExtResource( 5 )]
-position = Vector2( 1193.76, 447.978 )
-
-[node name="Tree001Large9" parent="BG" instance=ExtResource( 5 )]
-position = Vector2( 1258.71, 570.681 )
-
-[node name="Tree001Large10" parent="BG" instance=ExtResource( 5 )]
-position = Vector2( 1507.05, 572.048 )
-
-[node name="Tree001Large11" parent="BG" instance=ExtResource( 5 )]
-position = Vector2( 2002.88, 506.42 )
-
-[node name="Tree001Large12" parent="BG" instance=ExtResource( 5 )]
-position = Vector2( 2247.34, 660.398 )
-
-[node name="Tree001Large13" parent="BG" instance=ExtResource( 5 )]
-position = Vector2( 2510.85, 573.091 )
-
-[node name="Tree001Large14" parent="BG" instance=ExtResource( 5 )]
-position = Vector2( 2588.19, 434.763 )
-
-[node name="Tree001Medium7" parent="BG/Tree001Large14" instance=ExtResource( 14 )]
-position = Vector2( 743.087, -215.774 )
-
-[node name="Tree001Large15" parent="BG" instance=ExtResource( 5 )]
+[node name="Tree001Large15" parent="BG/ParallaxBackground/ParallaxLayer" instance=ExtResource( 5 )]
 position = Vector2( 2457.71, 424.253 )
 
-[node name="Tree001Large16" parent="BG" instance=ExtResource( 5 )]
+[node name="Tree001Large16" parent="BG/ParallaxBackground/ParallaxLayer" instance=ExtResource( 5 )]
 position = Vector2( 3511.06, 335.209 )
 
-[node name="Tree001Large17" parent="BG" instance=ExtResource( 5 )]
+[node name="Tree001Large17" parent="BG/ParallaxBackground/ParallaxLayer" instance=ExtResource( 5 )]
 position = Vector2( 3540.89, 444.845 )
 
-[node name="Tree001Large18" parent="BG" instance=ExtResource( 5 )]
+[node name="Tree001Large18" parent="BG/ParallaxBackground/ParallaxLayer" instance=ExtResource( 5 )]
 position = Vector2( 1188.32, 709.106 )
 
-[node name="Tree001Large19" parent="BG" instance=ExtResource( 5 )]
+[node name="Tree001Large19" parent="BG/ParallaxBackground/ParallaxLayer" instance=ExtResource( 5 )]
 position = Vector2( 1448.95, 738.771 )
 
-[node name="Tree001Large20" parent="BG" instance=ExtResource( 5 )]
+[node name="Tree001Large20" parent="BG/ParallaxBackground/ParallaxLayer" instance=ExtResource( 5 )]
 position = Vector2( 1798.57, 736.652 )
 
-[node name="Tree001Large21" parent="BG" instance=ExtResource( 5 )]
+[node name="Tree001Large21" parent="BG/ParallaxBackground/ParallaxLayer" instance=ExtResource( 5 )]
 position = Vector2( 2059.2, 802.338 )
 
-[node name="Tree001Large22" parent="BG" instance=ExtResource( 5 )]
+[node name="Tree001Large22" parent="BG/ParallaxBackground/ParallaxLayer" instance=ExtResource( 5 )]
 position = Vector2( 2402.47, 791.744 )
 
-[node name="Tree001Medium" parent="BG" instance=ExtResource( 14 )]
+[node name="Tree001Medium" parent="BG/ParallaxBackground/ParallaxLayer" instance=ExtResource( 14 )]
 position = Vector2( 3290.38, 357.633 )
 
-[node name="Tree001Medium2" parent="BG" instance=ExtResource( 14 )]
+[node name="Tree001Medium2" parent="BG/ParallaxBackground/ParallaxLayer" instance=ExtResource( 14 )]
 position = Vector2( 3343.47, 494.96 )
 
-[node name="Tree001Medium3" parent="BG" instance=ExtResource( 14 )]
+[node name="Tree001Medium3" parent="BG/ParallaxBackground/ParallaxLayer" instance=ExtResource( 14 )]
 position = Vector2( 3470.83, 544.404 )
+
+[node name="Tree001Large2" parent="BG/ParallaxBackground/ParallaxLayer" instance=ExtResource( 5 )]
+position = Vector2( 290.299, 549.916 )
+
+[node name="Tree001Large3" parent="BG/ParallaxBackground/ParallaxLayer" instance=ExtResource( 5 )]
+position = Vector2( 469.635, 430.988 )
+
+[node name="Tree001Large4" parent="BG/ParallaxBackground/ParallaxLayer" instance=ExtResource( 5 )]
+position = Vector2( 584.788, 266.754 )
+
+[node name="Tree001Large5" parent="BG/ParallaxBackground/ParallaxLayer" instance=ExtResource( 5 )]
+position = Vector2( 611.217, 521.6 )
+
+[node name="Tree001Large6" parent="BG/ParallaxBackground/ParallaxLayer" instance=ExtResource( 5 )]
+position = Vector2( 922.599, 298.519 )
+
+[node name="Tree001Large7" parent="BG/ParallaxBackground/ParallaxLayer" instance=ExtResource( 5 )]
+position = Vector2( 847.771, 604.091 )
+
+[node name="Tree001Large8" parent="BG/ParallaxBackground/ParallaxLayer" instance=ExtResource( 5 )]
+position = Vector2( 1193.76, 447.978 )
+
+[node name="Tree001Large9" parent="BG/ParallaxBackground/ParallaxLayer" instance=ExtResource( 5 )]
+position = Vector2( 1258.71, 570.681 )
+
+[node name="Tree001Large10" parent="BG/ParallaxBackground/ParallaxLayer" instance=ExtResource( 5 )]
+position = Vector2( 1507.05, 572.048 )
+
+[node name="Tree001Large11" parent="BG/ParallaxBackground/ParallaxLayer" instance=ExtResource( 5 )]
+position = Vector2( 2002.88, 506.42 )
+
+[node name="Tree001Large12" parent="BG/ParallaxBackground/ParallaxLayer" instance=ExtResource( 5 )]
+position = Vector2( 2247.34, 660.398 )
+
+[node name="Tree001Large13" parent="BG/ParallaxBackground/ParallaxLayer" instance=ExtResource( 5 )]
+position = Vector2( 2510.85, 573.091 )
+
+[node name="Tree001Large14" parent="BG/ParallaxBackground/ParallaxLayer" instance=ExtResource( 5 )]
+position = Vector2( 2588.19, 434.763 )
+
+[node name="Tree001Medium7" parent="BG/ParallaxBackground/ParallaxLayer/Tree001Large14" instance=ExtResource( 14 )]
+position = Vector2( 743.087, -215.774 )
+
+[node name="Tree001Large" parent="BG/ParallaxBackground/ParallaxLayer" instance=ExtResource( 5 )]
+position = Vector2( 120.816, 577.651 )
 
 [node name="Arms" type="Node2D" parent="."]
 
@@ -190,12 +309,23 @@ target_ext = NodePath("../../../Player")
 position = Vector2( 3470.94, 872.862 )
 target_ext = NodePath("../../../Player")
 
+[node name="Water2D" type="Sprite" parent="."]
+material = ExtResource( 9 )
+position = Vector2( 1657.55, 784.512 )
+scale = Vector2( 20.1442, 6.93853 )
+texture = ExtResource( 7 )
+script = ExtResource( 8 )
+deformation_size = Vector2( 2, 2 )
+water_color = Color( 0.0156863, 0.0156863, 0.0392157, 0.905882 )
+surface_color = Color( 0.380392, 0.380392, 0.380392, 0.74902 )
+surface_deformation_strength = 0.1
+
 [node name="Ground" type="StaticBody2D" parent="."]
 
 [node name="GroundShape" type="Polygon2D" parent="Ground"]
 position = Vector2( 0, 520 )
 scale = Vector2( 1.0236, 1 )
-color = Color( 0, 0, 0, 1 )
+color = Color( 0.04, 0.0235333, 0.002, 1 )
 texture = ExtResource( 12 )
 polygon = PoolVector2Array( 0, 0, 1000, 0, 1000, 1000, 0, 1000 )
 
@@ -242,44 +372,6 @@ points = PoolVector2Array( 0.772556, 523.068, 1023.36, 524.284 )
 width = 2.0
 default_color = Color( 0.145098, 0.145098, 0.133333, 1 )
 
-[node name="FG" type="Node2D" parent="."]
-
-[node name="Tree001Large" parent="FG" instance=ExtResource( 5 )]
-position = Vector2( -113.709, 569.272 )
-
-[node name="Tree001Large" parent="FG/Tree001Large" instance=ExtResource( 5 )]
-position = Vector2( -62.9289, -200.773 )
-
-[node name="Tree001Large2" parent="FG/Tree001Large" instance=ExtResource( 5 )]
-position = Vector2( -120.585, -412.141 )
-
-[node name="Tree001Large3" parent="FG/Tree001Large" instance=ExtResource( 5 )]
-position = Vector2( -226.329, -60.4072 )
-
-[node name="Tree001Large4" parent="FG/Tree001Large" instance=ExtResource( 5 )]
-position = Vector2( -225.641, -199.632 )
-
-[node name="Tree001Large5" parent="FG/Tree001Large" instance=ExtResource( 5 )]
-position = Vector2( -513.777, -414.305 )
-
-[node name="Tree001Large6" parent="FG/Tree001Large" instance=ExtResource( 5 )]
-position = Vector2( -605.174, -147.607 )
-
-[node name="Tree001Medium7" parent="FG/Tree001Large/Tree001Large6" instance=ExtResource( 14 )]
-position = Vector2( 701.442, 444.698 )
-
-[node name="Tree001Large" parent="FG/Tree001Large/Tree001Large6" instance=ExtResource( 5 )]
-position = Vector2( 439.442, 438.698 )
-
-[node name="Tree001Large2" parent="FG/Tree001Large/Tree001Large6" instance=ExtResource( 5 )]
-position = Vector2( 205.442, 220.698 )
-
-[node name="Tree001Large7" parent="FG/Tree001Large" instance=ExtResource( 5 )]
-position = Vector2( 12.7654, 181.092 )
-
-[node name="Tree001Medium7" parent="FG/Tree001Large" instance=ExtResource( 14 )]
-position = Vector2( -281.539, 33.6884 )
-
 [node name="Box" type="RigidBody2D" parent="."]
 visible = false
 mass = 100.0
@@ -294,23 +386,62 @@ disabled = true
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 512, -5000 )
 
+[node name="FG" type="Node2D" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="FG"]
+layer = 1
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="FG/ParallaxBackground"]
+motion_scale = Vector2( 1.1, 1.1 )
+
+[node name="Tree001Large" parent="FG/ParallaxBackground/ParallaxLayer" instance=ExtResource( 5 )]
+position = Vector2( -113.709, 569.272 )
+
+[node name="Tree001Large" parent="FG/ParallaxBackground/ParallaxLayer/Tree001Large" instance=ExtResource( 5 )]
+position = Vector2( -62.9289, -200.773 )
+
+[node name="Tree001Large2" parent="FG/ParallaxBackground/ParallaxLayer/Tree001Large" instance=ExtResource( 5 )]
+position = Vector2( -120.585, -412.141 )
+
+[node name="Tree001Large3" parent="FG/ParallaxBackground/ParallaxLayer/Tree001Large" instance=ExtResource( 5 )]
+position = Vector2( -226.329, -60.4072 )
+
+[node name="Tree001Large4" parent="FG/ParallaxBackground/ParallaxLayer/Tree001Large" instance=ExtResource( 5 )]
+position = Vector2( -225.641, -199.632 )
+
+[node name="Tree001Large5" parent="FG/ParallaxBackground/ParallaxLayer/Tree001Large" instance=ExtResource( 5 )]
+position = Vector2( -513.777, -414.305 )
+
+[node name="Tree001Large6" parent="FG/ParallaxBackground/ParallaxLayer/Tree001Large" instance=ExtResource( 5 )]
+position = Vector2( -605.174, -147.607 )
+
+[node name="Tree001Medium7" parent="FG/ParallaxBackground/ParallaxLayer/Tree001Large/Tree001Large6" instance=ExtResource( 14 )]
+position = Vector2( 701.442, 444.698 )
+
+[node name="Tree001Large" parent="FG/ParallaxBackground/ParallaxLayer/Tree001Large/Tree001Large6" instance=ExtResource( 5 )]
+position = Vector2( 439.442, 438.698 )
+
+[node name="Tree001Large3" parent="FG/ParallaxBackground/ParallaxLayer/Tree001Large/Tree001Large6" instance=ExtResource( 5 )]
+position = Vector2( 175.933, 368.852 )
+
+[node name="Tree001Large2" parent="FG/ParallaxBackground/ParallaxLayer/Tree001Large/Tree001Large6" instance=ExtResource( 5 )]
+position = Vector2( 205.442, 220.698 )
+
+[node name="Tree001Large7" parent="FG/ParallaxBackground/ParallaxLayer/Tree001Large" instance=ExtResource( 5 )]
+position = Vector2( 12.7654, 181.092 )
+
+[node name="Tree001Medium7" parent="FG/ParallaxBackground/ParallaxLayer/Tree001Large" instance=ExtResource( 14 )]
+position = Vector2( -281.539, 33.6884 )
+
+[node name="Tree001Medium8" parent="FG/ParallaxBackground/ParallaxLayer/Tree001Large" instance=ExtResource( 14 )]
+position = Vector2( -583.145, -4.40919 )
+
 [node name="Start" type="Area2D" parent="."]
 script = ExtResource( 6 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Start"]
 position = Vector2( 77.3624, 0 )
 polygon = PoolVector2Array( -80, 572, -92, 434, 952, 438, 942, 574 )
-
-[node name="Water2D" type="Sprite" parent="."]
-material = ExtResource( 9 )
-position = Vector2( 1665.54, 784.512 )
-scale = Vector2( 19.8946, 6.93853 )
-texture = ExtResource( 7 )
-script = ExtResource( 8 )
-deformation_size = Vector2( 2, 2 )
-water_color = Color( 0.0156863, 0.0156863, 0.0392157, 0.905882 )
-surface_color = Color( 0.380392, 0.380392, 0.380392, 0.74902 )
-surface_deformation_strength = 0.1
 
 [node name="Ground2" type="StaticBody2D" parent="."]
 script = ExtResource( 10 )
@@ -355,6 +486,6 @@ joints = 10
 target_ext = NodePath("../Player")
 length = 50.0
 thickness = 5.0
-[connection signal="body_entered" from="Start" to="Start" method="_on_Start_body_entered"]
 [connection signal="water_entered" from="Water2D" to="Start" method="_on_Water2D_water_entered"]
+[connection signal="body_entered" from="Start" to="Start" method="_on_Start_body_entered"]
 [connection signal="water_entered" from="Ground2/Water2D" to="Start" method="_on_Water2D_water_entered"]
