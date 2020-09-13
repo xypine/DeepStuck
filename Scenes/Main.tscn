@@ -37,19 +37,22 @@ scroll_base_scale = Vector2( 100, 100 )
 scroll_limit_begin = Vector2( 1000, 1000 )
 scroll_limit_end = Vector2( 1000, 1000 )
 
-[node name="Screen1" parent="Stars/CanvasLayer/ParallaxBackground" instance=ExtResource( 4 )]
+[node name="StarControl" type="Node2D" parent="Stars/CanvasLayer/ParallaxBackground"]
+modulate = Color( 1, 1, 1, 0.52549 )
+
+[node name="Screen1" parent="Stars/CanvasLayer/ParallaxBackground/StarControl" instance=ExtResource( 4 )]
 position = Vector2( 12.1359, -9.18613 )
 
-[node name="Screen2" parent="Stars/CanvasLayer/ParallaxBackground" instance=ExtResource( 4 )]
+[node name="Screen2" parent="Stars/CanvasLayer/ParallaxBackground/StarControl" instance=ExtResource( 4 )]
 position = Vector2( 1025.82, 5.05371 )
 
-[node name="Screen3" parent="Stars/CanvasLayer/ParallaxBackground" instance=ExtResource( 4 )]
+[node name="Screen3" parent="Stars/CanvasLayer/ParallaxBackground/StarControl" instance=ExtResource( 4 )]
 position = Vector2( 2164.38, 4.98168 )
 
-[node name="Screen1" parent="Stars/CanvasLayer/ParallaxBackground/Screen3" instance=ExtResource( 4 )]
+[node name="Screen1" parent="Stars/CanvasLayer/ParallaxBackground/StarControl/Screen3" instance=ExtResource( 4 )]
 position = Vector2( 1166.51, -58.686 )
 
-[node name="Screen2" parent="Stars/CanvasLayer/ParallaxBackground/Screen3" instance=ExtResource( 4 )]
+[node name="Screen2" parent="Stars/CanvasLayer/ParallaxBackground/StarControl/Screen3" instance=ExtResource( 4 )]
 position = Vector2( 2112.86, -116.017 )
 
 [node name="BG" type="Node2D" parent="."]

@@ -33,6 +33,7 @@ func _process(delta):
 
 func start(world):
 	#$Polygon2D/AnimationPlayer.play_backwards("Enter")
+	Audio.StartPlayer.play()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	Global.changeLevel(world)
 func _on_Button_pressed():
