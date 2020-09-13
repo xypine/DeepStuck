@@ -116,6 +116,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( 512, -200 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("../ParallaxBackground/ParallaxLayer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -150 ) ]
+}
 
 [sub_resource type="Animation" id=4]
 resource_name = "In"
@@ -286,7 +298,7 @@ __meta__ = {
 layer = 0
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2( 0, -150 )
+position = Vector2( 0, -100 )
 motion_scale = Vector2( 1, 0.5 )
 
 [node name="Made For" type="Label" parent="ParallaxBackground/ParallaxLayer"]

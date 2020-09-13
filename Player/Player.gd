@@ -67,21 +67,26 @@ func _physics_process(delta):
 			xinput -= 1
 		if Input.is_action_just_pressed("ui_down"):
 			motion.y -= JUMP_HEIGHT * 1.5
-	
+	var hasJumped = false
 	if is_on_floor():
 		resetJumps = true
 		if Input.is_action_just_pressed("ui_up") and control:
 			motion.y += JUMP_HEIGHT
+			hasJumped = true
 	elif control:
 		if is_on_wall() and Input.is_action_pressed("ui_up") and xinput > 0:
 			if walljumps > 0:
 				motion.y += JUMP_HEIGHT*2
 #				motion.x += xinput * -40
 				walljumps -= 1
+				hasJumped = true
 		else:
 			if Input.is_action_just_pressed("ui_up") and doublejumps > 0:
 				motion.y += JUMP_HEIGHT
 				doublejumps -= 1
+				hasJumped = true
+	if hasJumped:
+		$JumpPlayer.play()
 #	print("---")
 #	print(walljumps)
 #	print(doublejumps)
