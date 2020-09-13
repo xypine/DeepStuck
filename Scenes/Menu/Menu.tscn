@@ -172,11 +172,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Screen1" parent="BG" instance=ExtResource( 7 )]
+[node name="Stars" type="Node2D" parent="BG"]
+modulate = Color( 1, 1, 1, 0.52549 )
+
+[node name="Screen1" parent="BG/Stars" instance=ExtResource( 7 )]
 position = Vector2( -0.448608, -2.74567 )
 
-[node name="Screen2" parent="BG" instance=ExtResource( 7 )]
+[node name="Screen2" parent="BG/Stars" instance=ExtResource( 7 )]
 position = Vector2( 4.32579, -495.077 )
+
+[node name="Screen3" parent="BG/Stars" instance=ExtResource( 7 )]
+position = Vector2( 158.905, 114.986 )
+scale = Vector2( 0.25, 0.25 )
 
 [node name="Sprite" type="Sprite" parent="BG"]
 visible = false
@@ -274,10 +281,6 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Screen1" parent="." instance=ExtResource( 7 )]
-position = Vector2( 158.905, 114.986 )
-scale = Vector2( 0.25, 0.25 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 layer = 0
