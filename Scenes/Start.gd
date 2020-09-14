@@ -29,4 +29,4 @@ func _on_Start_body_entered(body):
 
 func _on_Water2D_water_entered(_water, _impact_pos, _body_id, body, _body_shape, _area_shape):
 	if body == Global.player:
-		Global.changeLevel("", true)
+		Global.changeLevel("", true, false, self)

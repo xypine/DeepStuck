@@ -21,7 +21,7 @@ var flag = false
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		save()
-		Global.changeLevel("res://Scenes/Menu/Menu.tscn")
+		Global.changeLevel("res://Scenes/Menu/Menu.tscn", false, false, self)
 	if is_instance_valid(Global.player):
 		if Global.player.global_position.y > 2000:
 			Global.player.global_position.y = 2000

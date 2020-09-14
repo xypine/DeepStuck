@@ -52,7 +52,7 @@ func rmArm(arm):
 		print("Arm " + str(arm) + " unregistered")
 func setPlayer(playe):
 	player = playe
-func changeLevel(level, restart=false, fake=false):
+func changeLevel(level, restart=false, fake=false, old="a"):
 	loading = true
 	print("Load Started")
 	$LoadPlayer.play("LoadStart")
@@ -67,6 +67,8 @@ func changeLevel(level, restart=false, fake=false):
 	print("Load Finished.")
 	loading = false
 	emit_signal("loadFinished")
+	if str(old) != "a":
+		old.queue_free()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_retry"):
