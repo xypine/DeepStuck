@@ -22,6 +22,7 @@ var done = false
 func _on_Start_body_entered(body):
 	if body == Global.player and not done:
 		print("Player has entered the starting point")
+		DialogueSystem.speak("start")
 		Global.player.control = true
 		done = true
 		Global.cutsDone.append("start")

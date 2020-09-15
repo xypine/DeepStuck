@@ -7,7 +7,7 @@
 size = 43
 font_data = ExtResource( 2 )
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=2]
 resource_name = "Idle"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Base:self_modulate")
@@ -22,8 +22,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "TextIn"
+[sub_resource type="Animation" id=3]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Base/Label:percent_visible")
 tracks/0/interp = 1
@@ -61,8 +60,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "TextOut"
+[sub_resource type="Animation" id=4]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Base/Label:self_modulate")
 tracks/0/interp = 1
@@ -111,6 +109,6 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="DialogueFrame"]
 autoplay = "Idle"
-anims/Idle = SubResource( 4 )
-anims/TextIn = SubResource( 2 )
-anims/TextOut = SubResource( 3 )
+anims/Idle = SubResource( 2 )
+anims/TextIn = SubResource( 3 )
+anims/TextOut = SubResource( 4 )
