@@ -486,6 +486,9 @@ joints = 10
 target_ext = NodePath("../Player")
 length = 50.0
 thickness = 5.0
+
+[node name="Light2D3" parent="." instance=ExtResource( 11 )]
+position = Vector2( 960.753, 473.184 )
 [connection signal="water_entered" from="Water2D" to="Start" method="_on_Water2D_water_entered"]
 [connection signal="body_entered" from="Start" to="Start" method="_on_Start_body_entered"]
 [connection signal="water_entered" from="Ground2/Water2D" to="Start" method="_on_Water2D_water_entered"]

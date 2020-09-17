@@ -13,7 +13,10 @@ var dialogs = {
 	"start" : [
 			["uh...", speaker.ME],
 			["Where am I?", speaker.ME],
-		]
+		],
+	0 : [
+			["The roots will help you on your way.", speaker.LightGuy]
+	]
 }
 var playing = false
 # Called when the node enters the scene tree for the first time.
