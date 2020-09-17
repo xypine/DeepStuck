@@ -11,7 +11,7 @@ enum speaker{ME, LightGuy}
 
 var dialogs = {
 	"start" : [
-			["...", speaker.ME],
+			["uh...", speaker.ME],
 			["Where am I?", speaker.ME],
 		]
 }
@@ -26,18 +26,21 @@ func speak(id):
 	for i in dialogs[id]:
 		playing = false
 		$DialogueFrame/Base/Label.text = i[0]
+		$DialogueFrame/Base/Speaker.text = str(speaker.keys()[i[1]])
 		$DialogueFrame/AnimationPlayer.play("TextIn")
 		yield($DialogueFrame/AnimationPlayer, "animation_finished")
 		playing = true
 		yield(self, "dialogueFinished")
+	hideSpeak(true)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		if playing:
-			hideSpeak()
+			hideSpeak(false, true)
 			emit_signal("dialogueFinished")
-func hideSpeak(instant=false):
+func hideSpeak(instant=false, transition=false):
 	$DialogueFrame/AnimationPlayer.play("TextOut")
 	if not instant:
 		yield($DialogueFrame/AnimationPlayer, "animation_finished")
-	$DialogueFrame/Base.visible = false
+	if not transition:
+		$DialogueFrame/Base.visible = false

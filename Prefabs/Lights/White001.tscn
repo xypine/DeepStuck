@@ -18,3 +18,5 @@ texture = ExtResource( 1 )
 [node name="ChitChat" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 2 )
 volume_db = -14.286
+
+[node name="Area2D" type="Area2D" parent="."]
