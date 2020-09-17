@@ -21,18 +21,23 @@ func _ready():
 	pass # Replace with function body.
 
 func speak(id):
+	playing = false
 	$DialogueFrame/Base.visible = true
 	for i in dialogs[id]:
+		playing = false
 		$DialogueFrame/Base/Label.text = i[0]
 		$DialogueFrame/AnimationPlayer.play("TextIn")
+		yield($DialogueFrame/AnimationPlayer, "animation_finished")
 		playing = true
+		yield(self, "dialogueFinished")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		if playing:
 			hideSpeak()
 			emit_signal("dialogueFinished")
-func hideSpeak():
+func hideSpeak(instant=false):
 	$DialogueFrame/AnimationPlayer.play("TextOut")
-	yield($DialogueFrame/AnimationPlayer, "animation_finished")
+	if not instant:
+		yield($DialogueFrame/AnimationPlayer, "animation_finished")
 	$DialogueFrame/Base.visible = false

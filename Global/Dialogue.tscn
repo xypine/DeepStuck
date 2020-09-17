@@ -61,6 +61,7 @@ tracks/2/keys = {
 }
 
 [sub_resource type="Animation" id=4]
+length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Base/Label:self_modulate")
 tracks/0/interp = 1
@@ -68,7 +69,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
@@ -102,13 +103,13 @@ margin_right = 986.0
 margin_bottom = 563.0
 custom_fonts/font = SubResource( 1 )
 text = "... Text!"
-percent_visible = 0.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="DialogueFrame"]
 autoplay = "Idle"
+playback_speed = 1.2
 anims/Idle = SubResource( 2 )
 anims/TextIn = SubResource( 3 )
 anims/TextOut = SubResource( 4 )

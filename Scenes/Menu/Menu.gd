@@ -8,6 +8,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	DialogueSystem.hideSpeak(true)
 	$Button2.hide()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	Global.currentLevel = "res://Scenes/Menu/Menu.tscn"
