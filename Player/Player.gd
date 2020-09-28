@@ -4,7 +4,7 @@ extends KinematicBody2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-const GRAVITY = 20
+#const GRAVITY = 20
 const ACCELERATION = 50 * 2.2
 const MAX_SPEED = 200
 const JUMP_HEIGHT = -550
@@ -47,10 +47,15 @@ func _process(_delta):
 		var z = $Camera2D.zoom.x
 		z = min(z+0.02, 1)
 		$Camera2D.zoom = Vector2(z,z)
+	if Global.pause:
+		set_physics_process(false)
+	else:
+		set_physics_process(true)
 
 func _physics_process(_delta):
-	motion.y += GRAVITY
-	motion.x = motion.x / 1.2
+	if not Global.pause:
+		motion.y += Global.gravity
+		motion.x = motion.x / 1.2
 	if resetJumps:
 		resetJumps = false
 		walljumps = 1

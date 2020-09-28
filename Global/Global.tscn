@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Global/Global.gd" type="Script" id=1]
 [ext_resource path="res://default_env.tres" type="Environment" id=2]
@@ -86,16 +86,16 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 800 ), Vector2( 0, 0 ) ]
 }
 
+[sub_resource type="DynamicFont" id=5]
+size = 20
+font_data = ExtResource( 3 )
+
 [sub_resource type="DynamicFont" id=6]
 size = 20
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=7]
-size = 20
-font_data = ExtResource( 3 )
-
-[sub_resource type="Animation" id=5]
-resource_name = "Saved"
+[sub_resource type="Animation" id=9]
+resource_name = "Load Failed"
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer/SaveLabel:self_modulate")
@@ -108,6 +108,73 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.658824 ), Color( 1, 1, 1, 0.67451 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/SaveLabel:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Load Failed - No Loads Yet" ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "Loaded"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/SaveLabel:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.658824 ), Color( 1, 1, 1, 0.67451 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/SaveLabel:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 4.09782e-08 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Game Progress Loaded" ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/SaveLabel:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.658824 ), Color( 1, 1, 1, 0.67451 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/SaveLabel:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 2.18675e-06 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Game Progress Saved" ]
 }
 
 [node name="Node2D" type="Node2D"]
@@ -137,7 +204,7 @@ anchor_bottom = 1.0
 margin_left = -84.1785
 margin_top = -28.0
 margin_right = 9.82153
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 5 )
 text = "Loading..."
 __meta__ = {
 "_edit_use_anchors_": false
@@ -152,8 +219,8 @@ anchor_bottom = 1.0
 margin_left = -15.6844
 margin_top = -28.0
 margin_right = 78.3156
-custom_fonts/font = SubResource( 7 )
-text = "Game Progress Saved"
+custom_fonts/font = SubResource( 6 )
+text = "Game Progress Loaded"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -162,4 +229,6 @@ __meta__ = {
 environment = ExtResource( 2 )
 
 [node name="SavePlayer" type="AnimationPlayer" parent="."]
-anims/Saved = SubResource( 5 )
+"anims/Load Failed" = SubResource( 9 )
+anims/Loaded = SubResource( 8 )
+anims/Saved = SubResource( 7 )

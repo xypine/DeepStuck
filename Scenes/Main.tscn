@@ -474,11 +474,13 @@ occluder = SubResource( 3 )
 position = Vector2( 2238.44, 504.92 )
 texture_scale = 11.68
 energy = 1.36
+chatId = 1
 
 [node name="Light2D2" parent="." instance=ExtResource( 11 )]
 position = Vector2( 3471.58, 137.207 )
 texture_scale = 11.68
 energy = 1.36
+chatId = 2
 
 [node name="ARMV2P4" parent="." instance=ExtResource( 13 )]
 position = Vector2( 4163.47, 382.321 )

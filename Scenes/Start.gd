@@ -24,7 +24,7 @@ func _on_Start_body_entered(body):
 		Global.freeze = false
 		print("Player has entered the starting point")
 		DialogueSystem.speak("start")
-		yield(DialogueSystem, "dialogueFinished")
+		yield(DialogueSystem, "dialogueFinishedALL")
 		Global.player.control = true
 		done = true
 		Global.cutsDone.append("start")
@@ -33,4 +33,5 @@ func _on_Start_body_entered(body):
 
 func _on_Water2D_water_entered(_water, _impact_pos, _body_id, body, _body_shape, _area_shape):
 	if body == Global.player:
-		Global.changeLevel("", true, false, self)
+		Global.doLoad()
+#		Global.changeLevel("", true, false, self)

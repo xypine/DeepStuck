@@ -112,7 +112,6 @@ void fragment() {
 	}
 
 }"
-custom_defines = ""
 
 [sub_resource type="OpenSimplexNoise" id=2]
 

@@ -21,6 +21,8 @@ func _ready():
 var triggered = false
 
 func _on_Area2D_body_entered(body):
-	if not triggered:
-		triggered = true
-		DialogueSystem.speak(chatId)
+	if body == Global.player:
+		Global.save()
+		if not triggered:
+			triggered = true
+			DialogueSystem.speak(chatId)

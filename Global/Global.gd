@@ -11,6 +11,9 @@ var autosave_nature = "a"
 var loadRequested = false
 var cutsDone = []
 
+var gravity = 20
+var pause = false
+
 var nature = []
 var freeze = false
 
@@ -22,6 +25,7 @@ var loading = false
 signal loadFinished
 
 onready var SavePlayer = $SavePlayer
+onready var LoadPlayer = $LoadPlayer
 var notfirst = false
 
 # Called when the node enters the scene tree for the first time.
@@ -53,6 +57,7 @@ func rmArm(arm):
 func setPlayer(playe):
 	player = playe
 func changeLevel(level, restart=false, fake=false, old="a"):
+	var time_start = OS.get_unix_time()
 	loading = true
 	print("Load Started")
 	$LoadPlayer.play("LoadStart")
@@ -69,16 +74,20 @@ func changeLevel(level, restart=false, fake=false, old="a"):
 	emit_signal("loadFinished")
 	if str(old) != "a":
 		old.queue_free()
+	var time_now = OS.get_unix_time()
+	print("Level change took " + str(time_now-time_start) + " ms.")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_retry"):
-		changeLevel(currentLevel, true)
+		doLoad()
+#		changeLevel(currentLevel, true)
 	if Input.is_action_just_pressed("ui_fullscreen"):
 		OS.window_fullscreen = not OS.window_fullscreen
 	if is_instance_valid(player):
 		pass
 		
 func saveToFile():
+	var time_start = OS.get_unix_time()
 	var save_game = File.new()
 	if save_game.file_exists("user://savegame.save"):
 		var dir = Directory.new()
@@ -88,8 +97,10 @@ func saveToFile():
 	save_game.store_line(to_json(autosave))
 	save_game.store_line(to_json(autosave_nature))
 	save_game.close()
-	print("Saved progress to savegame.save")
+	var time_now = OS.get_unix_time()
+	print("Saved progress to savegame.save (" + str(time_now-time_start) + "ms)")
 func loadFromFile():
+	var time_start = OS.get_unix_time()
 	var save_game = File.new()
 	if not save_game.file_exists("user://savegame.save"):
 		return # Error! We don't have a save to load.
@@ -97,4 +108,37 @@ func loadFromFile():
 	autosave = parse_json(save_game.get_line())
 	autosave_nature = parse_json(save_game.get_line())
 	save_game.close()
-	print("Savegame read from savegame.save succesfull.")
+	var time_now = OS.get_unix_time()
+	print("Savegame read from savegame.save succesfull. (" + str(time_now-time_start) + "ms)")
+
+func save():
+	var time_start = OS.get_unix_time()
+	autosave = player.toDict()
+	var nat = []
+	for i in nature:
+		nat.append(i.toDict())
+	autosave_nature = nat
+	saveToFile()
+	print("Save saved: " + str(Global.autosave))
+	var time_now = OS.get_unix_time()
+	SavePlayer.play("Saved")
+
+func doLoad():
+	var time_start = OS.get_unix_time()
+	var time_now = 0
+	if str(autosave) != "a" and str(autosave_nature) != "a":
+		player.fromDict(Global.autosave)
+		time_now = OS.get_unix_time()
+		print("Player loaded in " + str(time_now - time_start) + "ms")
+		time_start = OS.get_unix_time()
+		var ind = 0
+		for i in nature:
+			i.fromDict(Global.autosave_nature[ind])
+			ind += 1
+		print("Player loaded in " + str(time_now - time_start) + "ms")
+		time_now = OS.get_unix_time()
+		print("A.R.M.s loaded in " + str(time_now - time_start) + "ms")
+		SavePlayer.play("Loaded")
+	else:
+		print("No valid savedata avaible")
+		SavePlayer.play("Load Failed")
