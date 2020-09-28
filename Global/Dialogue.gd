@@ -8,7 +8,7 @@ extends Node2D
 signal dialogueFinished
 signal dialogueFinishedALL
 
-enum speaker{ME, LightGuy}
+enum speaker{ME, LightGuy, game}
 
 var dialogs = {
 	"start" : [
@@ -21,7 +21,12 @@ var dialogs = {
 	1 : [
 			["Or at least will try to :)", speaker.LightGuy],
 			["If you find yourself stuck, just press r to restart from the latest checkpoint!", speaker.LightGuy],
-	]
+	],
+	2 : [
+			["If you ever think them being still would help...", speaker.LightGuy],
+			["You know, they wouldn't mind taking a break ;)", speaker.LightGuy],
+			["( Press SPACE to freeze and unfreeze roots )", speaker.game],
+	],
 }
 var playing = false
 # Called when the node enters the scene tree for the first time.
