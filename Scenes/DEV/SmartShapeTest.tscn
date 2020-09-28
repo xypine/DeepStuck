@@ -1,0 +1,136 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://addons/rmsmartshape/shapes/point_array.gd" type="Script" id=2]
+[ext_resource path="res://addons/rmsmartshape/materials/shape_material.gd" type="Script" id=3]
+[ext_resource path="res://addons/rmsmartshape/shapes/shape_open.gd" type="Script" id=4]
+[ext_resource path="res://addons/rmsmartshape/vertex_properties.gd" type="Script" id=5]
+[ext_resource path="res://addons/rmsmartshape/shapes/point.gd" type="Script" id=6]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 3 )
+_edge_meta_materials = [  ]
+fill_textures = [  ]
+fill_texture_normals = [  ]
+fill_texture_z_index = -10
+fill_mesh_offset = 0.0
+render_offset = 0.0
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 5 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=3]
+script = ExtResource( 6 )
+position = Vector2( -62.0896, 38.5334 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 2 )
+
+[sub_resource type="Resource" id=4]
+script = ExtResource( 5 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=5]
+script = ExtResource( 6 )
+position = Vector2( 45.5449, -9.39761 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 4 )
+
+[sub_resource type="Resource" id=6]
+script = ExtResource( 5 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=7]
+script = ExtResource( 6 )
+position = Vector2( 253.246, 20.0337 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 6 )
+
+[sub_resource type="Resource" id=8]
+script = ExtResource( 5 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=9]
+script = ExtResource( 6 )
+position = Vector2( 550.922, 109.168 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 8 )
+
+[sub_resource type="Resource" id=10]
+script = ExtResource( 5 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=11]
+script = ExtResource( 6 )
+position = Vector2( 587.922, 207.553 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 10 )
+
+[sub_resource type="Resource" id=12]
+script = ExtResource( 5 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=13]
+script = ExtResource( 6 )
+position = Vector2( 207.837, 229.416 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 12 )
+
+[sub_resource type="Resource" id=14]
+script = ExtResource( 2 )
+_points = {
+0: SubResource( 3 ),
+1: SubResource( 5 ),
+2: SubResource( 7 ),
+3: SubResource( 9 ),
+5: SubResource( 11 ),
+7: SubResource( 13 )
+}
+_point_order = [ 0, 1, 2, 3, 5, 7 ]
+_constraints = {
+
+}
+_next_key = 7
+
+[node name="Node2D" type="Node2D"]
+position = Vector2( 7.56805, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 511.642, 77.1262 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 279.527, -95.7354 )
+
+[node name="SS2D_Shape_Open" type="Node2D" parent="StaticBody2D"]
+position = Vector2( -279.387, -131.199 )
+script = ExtResource( 4 )
+render_edges = false
+collision_polygon_node_path = NodePath("../CollisionPolygon2D")
+shape_material = SubResource( 1 )
+_points = SubResource( 14 )
+material_overrides = {
+
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+visible = false
+modulate = Color( 1, 1, 1, 0.3 )
+polygon = PoolVector2Array( -341.476, -92.6652, -233.928, -141.213, -26.1313, -111.209, 272.667, -23.2421, 313.821, 79.7938, -71.5494, 98.2178, -73.3871, 66.2707, 287.354, 62.5738, 250.839, 0.141586, -32.985, -79.9514, -229.492, -109.522, -328.459, -63.4326 )

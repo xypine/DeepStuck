@@ -75,16 +75,18 @@ func compute_impact_pos(body):
 	return Vector2(body_pos_relative_top_left.x, surface_y)
 	
 func _on_Area2D_body_shape_entered(body_id, body, body_shape, area_shape):
-	var impact_pos = compute_impact_pos(body)
-	if impact_pos.y <= body.global_position.y :
-		if automatic_impact : 
-			add_impact(impact_pos, 10.0, 5.0)
-		emit_signal("water_splashed", self, impact_pos, body_id, body, body_shape, area_shape)
-	emit_signal("water_entered", self, impact_pos, body_id, body, body_shape, area_shape)
+	if body == Global.player:
+		var impact_pos = compute_impact_pos(body)
+		if impact_pos.y <= body.global_position.y :
+			if automatic_impact : 
+				add_impact(impact_pos, 10.0, 5.0)
+			emit_signal("water_splashed", self, impact_pos, body_id, body, body_shape, area_shape)
+		emit_signal("water_entered", self, impact_pos, body_id, body, body_shape, area_shape)
 	
 func _on_Area2D_body_shape_exited(body_id, body, body_shape, area_shape):
-	var impact_pos = compute_impact_pos(body)
-	emit_signal("water_exited", self, impact_pos, body_id, body, body_shape, area_shape)
+	if body == Global.player:
+		var impact_pos = compute_impact_pos(body)
+		emit_signal("water_exited", self, impact_pos, body_id, body, body_shape, area_shape)
 	
 func add_impact(pos, length, height):
 	material.set_shader_param("impact_height_" + str(drop_index), height)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/Textures/Lights/White001.png" type="Texture" id=1]
 [ext_resource path="res://Assets_External/Sounds/Industrial/SL_Industrial_Clicks_105_BPM_E.wav" type="AudioStream" id=2]
@@ -7,11 +7,30 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 50.0
 
+[sub_resource type="Animation" id=2]
+resource_name = "Idle"
+length = 9.9
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5, 9.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 2.4, 1.0, 2.4 ]
+}
+
 [node name="Light2D" type="Light2D"]
 z_index = 9
 texture = ExtResource( 1 )
 texture_scale = 5.08
+energy = 2.4
 shadow_enabled = true
+shadow_filter_smooth = 13.8
 script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -26,5 +45,10 @@ volume_db = -14.286
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Idle"
+anims/Idle = SubResource( 2 )
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

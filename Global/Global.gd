@@ -126,7 +126,7 @@ func save():
 func doLoad():
 	var time_start = OS.get_unix_time()
 	var time_now = 0
-	if str(autosave) != "a" and str(autosave_nature) != "a" and is_instance_valid(autosave):
+	if str(autosave) != "a" and str(autosave_nature) != "a" and str(autosave) != str(NAN):
 		player.fromDict(autosave)
 		time_now = OS.get_unix_time()
 		print("Player loaded in " + str(time_now - time_start) + "ms")
@@ -140,5 +140,5 @@ func doLoad():
 		print("A.R.M.s loaded in " + str(time_now - time_start) + "ms")
 		SavePlayer.play("Loaded")
 	else:
-		print("No valid savedata avaible")
+		print("No valid savedata avaible: " + str(autosave))
 		SavePlayer.play("Load Failed")

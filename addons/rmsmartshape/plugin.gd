@@ -866,7 +866,7 @@ func _input_handle_left_click(
 		gui_edge_info_panel.visible = false
 
 		# Any nearby control points to move?
-		if not Input.is_key_pressed(KEY_ALT):
+		if not Input.is_key_pressed(KEY_ALT) and Input.is_key_pressed(KEY_SHIFT):
 			if _input_move_control_points(mb, vp_m_pos, grab_threshold):
 				return true
 
@@ -885,7 +885,7 @@ func _input_handle_left_click(
 
 		if not on_edge:
 			# Create new point
-			if Input.is_key_pressed(KEY_ALT):
+			if Input.is_key_pressed(KEY_ALT) and Input.is_key_pressed(KEY_SHIFT):
 				var local_position = t.affine_inverse().xform(mb.position)
 				if use_snap():
 					local_position = snap(local_position)
