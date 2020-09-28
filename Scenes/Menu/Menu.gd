@@ -38,6 +38,7 @@ func start(world):
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	Global.changeLevel(world)
 func _on_Button_pressed():
+	Global.loadFromFile()
 	if str(Global.autosave) != "a":
 		Global.loadRequested = true
 	start("res://Scenes/Main.tscn")
@@ -45,4 +46,5 @@ func _on_Button_pressed():
 
 func _on_Button2_pressed():
 	Global.zeroProgress()
+	Global.saveToFile()
 	start("res://Scenes/Main.tscn")

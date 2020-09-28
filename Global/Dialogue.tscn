@@ -104,6 +104,7 @@ margin_bottom = 563.0
 custom_fonts/font = SubResource( 1 )
 text = "... Text with many many many many many many many many lines!"
 autowrap = true
+percent_visible = 0.0
 __meta__ = {
 "_edit_use_anchors_": false
 }

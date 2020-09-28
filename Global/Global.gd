@@ -1,6 +1,6 @@
 extends Node2D
 
-const Version = 0.1
+const Version = 0.2
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -126,8 +126,8 @@ func save():
 func doLoad():
 	var time_start = OS.get_unix_time()
 	var time_now = 0
-	if str(autosave) != "a" and str(autosave_nature) != "a":
-		player.fromDict(Global.autosave)
+	if str(autosave) != "a" and str(autosave_nature) != "a" and is_instance_valid(autosave):
+		player.fromDict(autosave)
 		time_now = OS.get_unix_time()
 		print("Player loaded in " + str(time_now - time_start) + "ms")
 		time_start = OS.get_unix_time()

@@ -94,7 +94,7 @@ font_data = ExtResource( 3 )
 size = 20
 font_data = ExtResource( 3 )
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=7]
 resource_name = "Load Failed"
 length = 3.0
 tracks/0/type = "value"
@@ -119,7 +119,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ "Load Failed - No Loads Yet" ]
+"values": [ "Load Failed - No Saves Yet" ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -150,7 +150,7 @@ tracks/1/keys = {
 "values": [ "Game Progress Loaded" ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=9]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer/SaveLabel:self_modulate")
@@ -220,7 +220,7 @@ margin_left = -15.6844
 margin_top = -28.0
 margin_right = 78.3156
 custom_fonts/font = SubResource( 6 )
-text = "Game Progress Loaded"
+text = "Load Failed - No Saves Yet"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -229,6 +229,6 @@ __meta__ = {
 environment = ExtResource( 2 )
 
 [node name="SavePlayer" type="AnimationPlayer" parent="."]
-"anims/Load Failed" = SubResource( 9 )
+"anims/Load Failed" = SubResource( 7 )
 anims/Loaded = SubResource( 8 )
-anims/Saved = SubResource( 7 )
+anims/Saved = SubResource( 9 )

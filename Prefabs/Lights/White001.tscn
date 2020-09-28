@@ -8,8 +8,9 @@
 radius = 50.0
 
 [node name="Light2D" type="Light2D"]
+z_index = 9
 texture = ExtResource( 1 )
-texture_scale = 4.23
+texture_scale = 5.08
 shadow_enabled = true
 script = ExtResource( 3 )
 
