@@ -147,9 +147,11 @@ func genColl():
 	if enabled:
 		$Area2D/CollisionPolygon2D.polygon = poly + PoolVector2Array()
 		$Area2D/Polygon2D.polygon = poly + PoolVector2Array()
+		$Area2D/LightOccluder2D.occluder.polygon = poly + PoolVector2Array()
 	else:
 		$Area2D/CollisionPolygon2D.polygon = PoolVector2Array()
 		$Area2D/Polygon2D.polygon = PoolVector2Array()
+		$Area2D/LightOccluder2D.occluder.polygon = PoolVector2Array()
 #	print(score())
 var colliding = []
 var is_colliding = false

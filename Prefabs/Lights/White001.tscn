@@ -27,7 +27,7 @@ tracks/0/keys = {
 [node name="Light2D" type="Light2D"]
 z_index = 9
 texture = ExtResource( 1 )
-texture_scale = 5.08
+texture_scale = 20.42
 energy = 2.4
 shadow_enabled = true
 shadow_filter_smooth = 13.8

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://ARM/ARM.gd" type="Script" id=1]
 [ext_resource path="res://ARM/Area2D.gd" type="Script" id=2]
@@ -7,6 +7,9 @@
 render_priority = 8
 blend_mode = 1
 light_mode = 1
+
+[sub_resource type="OccluderPolygon2D" id=2]
+polygon = PoolVector2Array( 14.6342, -1.72504, 12.7465, -728.508, -9.90656, -728.508, -15.5698, 0.16272 )
 
 [node name="ARM_Root" type="Node2D"]
 script = ExtResource( 1 )
@@ -113,6 +116,9 @@ build_mode = 1
 
 [node name="Polygon2D" type="Polygon2D" parent="Area2D"]
 visible = false
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Area2D"]
+occluder = SubResource( 2 )
 [connection signal="body_entered" from="Area2D2" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D2" to="." method="_on_Area2D_body_exited"]
 [connection signal="body_shape_entered" from="Area2D2" to="." method="_on_Area2D_body_shape_entered"]

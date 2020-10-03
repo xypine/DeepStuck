@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://ARM_V2/Joint/ARMV2J.gd" type="Script" id=1]
+
+[sub_resource type="OccluderPolygon2D" id=1]
 
 [node name="ARMV2P" type="Node2D"]
 script = ExtResource( 1 )
@@ -18,3 +20,6 @@ polygon = PoolVector2Array( 5, 0, 5, -100, -5, -100, -5, 0 )
 
 [node name="Line2D" type="Line2D" parent="Area2D"]
 points = PoolVector2Array( 0, 0, 0, 500 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Area2D"]
+occluder = SubResource( 1 )
