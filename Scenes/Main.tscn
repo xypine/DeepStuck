@@ -59,6 +59,18 @@ position = Vector2( -1022.81, -657.665 )
 [node name="Screen7" parent="Stars/ParallaxBackground/ParallaxLayer/StarControl" instance=ExtResource( 4 )]
 position = Vector2( 768.796, -554.351 )
 
+[node name="Screen8" parent="Stars/ParallaxBackground/ParallaxLayer/StarControl" instance=ExtResource( 4 )]
+position = Vector2( 3550.59, 465.943 )
+
+[node name="Screen9" parent="Stars/ParallaxBackground/ParallaxLayer/StarControl" instance=ExtResource( 4 )]
+position = Vector2( 4303, 348.296 )
+
+[node name="Screen10" parent="Stars/ParallaxBackground/ParallaxLayer/StarControl" instance=ExtResource( 4 )]
+position = Vector2( 4835.35, 418.142 )
+
+[node name="Screen11" parent="Stars/ParallaxBackground/ParallaxLayer/StarControl" instance=ExtResource( 4 )]
+position = Vector2( 5817.12, 459.124 )
+
 [node name="Screen3" parent="Stars/ParallaxBackground/ParallaxLayer/StarControl" instance=ExtResource( 4 )]
 position = Vector2( 2164.38, 4.98168 )
 
@@ -482,6 +494,16 @@ color = Color( 0.0823529, 0.0784314, 0.0784314, 1 )
 texture = ExtResource( 12 )
 texture_rotation_degrees = 25.1
 polygon = PoolVector2Array( 4365.93, 423.999, 4243.03, 284.15, 4217.6, 163.371, 4211.25, -4.02393, 4187.94, -317.625, 4101.06, -620.631, 4103.18, -641.821, 4124.37, -656.653, 4234.83, -663.803, 4260.29, -694.916, 4268.78, -759.969, 4257.46, -841.994, 4285.75, -856.136, 4339.49, -864.621, 4407.37, -943.817, 4489.39, -1085.24, 4509.19, -1650.92, 6554.46, -1585.72, 6607.32, 441.727 )
+
+[node name="Ground4" type="StaticBody2D" parent="."]
+script = ExtResource( 15 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground4"]
+
+[node name="Polygon2D" type="Polygon2D" parent="Ground4"]
+color = Color( 0.0823529, 0.0784314, 0.0784314, 1 )
+texture = ExtResource( 12 )
+polygon = PoolVector2Array( 4290.31, 732.999, 4320.51, 710.346, 4339.39, 699.02, 4713.17, 744.326, 5098.27, 933.1, 6548.06, 1046.37, 6887.85, 887.794, 7124.56, 1458.22, 4203.87, 1434.44 )
 
 [node name="Light2D" parent="." instance=ExtResource( 11 )]
 position = Vector2( 2238.44, 504.92 )
